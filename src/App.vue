@@ -1,29 +1,42 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  flood-color: #444;
+  box-sizing: border-box;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+a {
+  color: #444;
+}
+.my_must {
+  color: #999 !important;
+}
+.my_gray {
+  color: #aaa !important;
+}
+.my_border {
+  border: 1px solid #aaa;
+}
+.breadcrumb {
+  background: #ffffff;
+  padding-bottom: 0;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
+div.my_border a.m-3 {
+  transition: all 0.5s linear;
+}
+div.my_border a.m-3:hover {
+  color: #ccc;
+  font-weight: bold;
+  font-size: 20px;
 }
 </style>

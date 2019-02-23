@@ -1,23 +1,36 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Vue from "vue";
+import Router from "vue-router";
+import Index from "./views/Index.vue";
+import NotFound from "./views/NotFound.vue";
 
-Vue.use(Router)
+import Main from "./views/Main.vue";
+import Faq from "./views/Faq.vue";
+import Cate from "./views/Cate.vue";
+import Cart from "./views/Cart.vue";
+import Goods from "./views/Goods.vue";
+import Login from "./views/Login.vue";
+import Reg from "./views/Reg.vue";
+import Order from "./views/Order.vue";
 
+Vue.use(Router);
+// 整个项目的路由词典：访问路径 <=> 视图组件
 export default new Router({
   routes: [
+    { path: "/", redirect: "/index" },
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: "/index",
+      component: Main,
+      children: [
+        { path: "/", component: Index },
+        { path: "/faq", component: Faq },
+        { path: "/cart", component: Cart },
+        { path: "/cate", component: Cate },
+        { path: "/goods", component: Goods },
+        { path: "/login", component: Login },
+        { path: "/order", component: Order },
+        { path: "/reg", component: Reg }
+      ]
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+    { path: "/*", component: NotFound }
   ]
-})
+});
