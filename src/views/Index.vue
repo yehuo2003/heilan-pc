@@ -22,29 +22,29 @@
     </div>
     <!-- 小图：世界由你来更新-->
     <div class="text-center p-5 m-5">
-      <a href="cate.html">
+      <router-link to="/cate">
         <img :src="$store.state.pcUrl+'O1CN011D59Q2lYLCvCGpI_!!693060164.jpg'">
-      </a>
+      </router-link>
     </div>
     <!-- 品类精选-->
     <div class="text-center p-5 m-5">
-      <a href="#">
+      <router-link to="/cate">
         <img :src="$store.state.pcUrl+'O1CN011D59PK2iSNq2xBj_!!693060164.jpg'">
-      </a>
+      </router-link>
     </div>
     <!-- 每两周精选：上图片，下列表-->
     <div class="text-center p-5 m-5 my_bg1 pr-3">
       <!-- 两张轮播小图-->
       <div class="carousel slide my_border" data-ride="carousel">
         <div class="carousel-item active">
-          <a href="#">
+          <router-link to="/cate">
             <img :src="$store.state.pcUrl+'5b7fb2cdNd346b688.jpg'">
-          </a>
+          </router-link>
         </div>
         <div class="carousel-item">
-          <a href="#">
+          <router-link to="/cate">
             <img :src="$store.state.pcUrl+'5b7fb2cdNdd1f69eb.jpg'">
-          </a>
+          </router-link>
         </div>
         <!-- 列表-->
         <ul class="list-unstyled d-flex flex-wrap p-5 justify-content-between heilan-cars">
@@ -114,14 +114,14 @@
         <br>
       </div>
       <div class="my_bg6 text-center pt-5 justify-content-between">
-        <a href="#" class="mr-5">ALL PRODUCT</a>
+        <a href="javascript:;" @click="goTop" class="mr-5">ALL PRODUCT</a>
         
-        <a href="#">BACK TO TOP</a>
+        <a href="javascript:;" @click="goTop">BACK TO TOP</a>
       </div>
     </div>
     <!--返回顶部-->
     <div class="goTop">
-      <a href="#">
+      <a href="javascript:;" @click="goTop">
         <img :src="$store.state.pcUrl+'top.png'" title="top">
       </a>
     </div>
@@ -218,6 +218,29 @@ export default {
     "heilan-Mentoring": Mentoring
   },
   methods: {
+    goTop() {
+      var timer = null;
+      var oScroll = true;
+      //滚动条事件,触发时清空定时器
+
+      if (!oScroll) {
+        clearInterval(timer);
+      }
+      oScroll = false;
+      timer = setInterval(function() {
+        //获取当前scrollTop的高度位置（兼容ie和chrom浏览器）
+        var oTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        //设置速度由快到慢
+        var ispeed = Math.floor(-oTop / 7);
+        document.documentElement.scrollTop = document.body.scrollTop =
+          oTop + ispeed;
+        oScroll = true;
+        if (oTop == 0) {
+          clearInterval(timer);
+        }
+      }, 30);
+    },
     isload() {
       function my$(id) {
         return document.getElementById(id);

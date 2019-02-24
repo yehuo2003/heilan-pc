@@ -14,7 +14,7 @@ import Order from "./views/Order.vue";
 
 Vue.use(Router);
 // 整个项目的路由词典：访问路径 <=> 视图组件
-export default new Router({
+const router = new Router({
   routes: [
     { path: "/", redirect: "/index" },
     {
@@ -34,3 +34,32 @@ export default new Router({
     { path: "/*", component: NotFound }
   ]
 });
+
+// 全局路由守卫
+router.beforeEach((to, from, next) => {
+  var userAgentInfo = navigator.userAgent;
+  var Agents = new Array(
+    "Android",
+    "iPhone",
+    "SymbianOS",
+    "Windows Phone",
+    "iPad",
+    "iPod"
+  );
+  var flag = true;
+  for (var v = 0; v < Agents.length; v++) {
+    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+      flag = false;
+      break;
+    }
+  }
+  if (!flag) {
+    window.location.href = "http://yehuo.applinzi.com";
+  } else {
+    next(); // 必须使用 next ,执行效果依赖 next 方法的调用参数
+  }
+  window.scrollTo(0, 0);
+  console.log(flag);
+});
+
+export default router;

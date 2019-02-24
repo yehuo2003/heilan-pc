@@ -7,27 +7,26 @@
         <ul class="d-flex list-unstyled justify-content-center mb-0">
           <li>你好，欢迎来到海澜之家！</li>
           <li>
-            <a href="login.html">
+            <router-link to="/login">
               <b>请登录 |</b>
-            </a>
+            </router-link>
           </li>
           <li>
             <a>
               <b>&nbsp;合作账号登录</b>
             </a>
           </li>
-          <li>
-            &nbsp;
-            <a href="login.html">
+          <li>&nbsp;
+            <router-link to="/login">
               <img :src="$store.state.pcUrl+'logo10.jpg'">
               <img :src="$store.state.pcUrl+'qqimg.jpg'">
               <img :src="$store.state.pcUrl+'taobaoimg.jpg'">
-            </a>
+            </router-link>
           </li>
           <li>
-            <a href="reg.html">
+            <router-link to="/reg">
               <b>&nbsp;| 免费注册</b>
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -62,9 +61,9 @@
       <div class="col-4">
         <div class="text-center mt-5 mr-5 pr-5">
           <input type="text" value="冬季新品" class="input-group-sm h-50">
-          <a href="cate.html">
+          <router-link to="/cate">
             <img :src="$store.state.pcUrl+'TB2b.c1XRzkJKJjSspiXXXd4XXa_!!693060164.jpg'">
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
@@ -86,7 +85,6 @@
       </div>
       <div id="content" class="position-absolute w-100 p-0">
         <ul>
-          <li></li>
           <li>
             <div class="d-flex justify-content-start">
               <ul v-for="item of liastnav" :key="item.id" class="m-5 list-unstyled">
@@ -105,9 +103,9 @@
                   <router-link to="/cate">{{t.title}}</router-link>
                 </li>
               </ul>
-              <a href="cate.html" class="m-5">
+              <router-link to="/cate" class="m-5">
                 <img :src="$store.state.pcUrl+item.img">
-              </a>
+              </router-link>
             </div>
           </li>
 
@@ -118,9 +116,9 @@
                   <a href="javascript:;">{{c.title}}</a>
                 </li>
               </ul>
-              <a href="cate.html" class="m-5">
+              <router-link to="/cate" class="m-5">
                 <img :src="$store.state.pcUrl+item.img">
-              </a>
+              </router-link>
             </div>
           </li>
         </ul>

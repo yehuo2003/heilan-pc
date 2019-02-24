@@ -4,9 +4,9 @@
     <div class="row">
       <div class="col-sm-12">
         <nav class="breadcrumb">
-          <span href="#" class="breadcrumb-item">首页</span>
-          <span href="#" class="breadcrumb-item my_must">帮助中心</span>
-          <span href="#" class="breadcrumb-item my_must">新手指南</span>
+          <router-link to="/" class="breadcrumb-item">首页</router-link>
+          <span class="breadcrumb-item my_must">帮助中心</span>
+          <span class="breadcrumb-item my_must">新手指南</span>
         </nav>
         <hr>
       </div>

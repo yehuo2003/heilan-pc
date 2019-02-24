@@ -56,7 +56,7 @@
                   <th>尺码</th>
                   <td>
                     <div class="mb-5 mt-3">
-                      <a
+                      <router-link
                         v-for="item of sizeList"
                         :key="item.id"
                         href="javascript:;"
@@ -64,7 +64,7 @@
                       >
                         <span>{{item.num}}</span>
                         <p class="bg-secondary">{{item.size}}</p>
-                      </a>
+                      </router-link>
                     </div>
                   </td>
                 </tr>
@@ -73,18 +73,18 @@
                   <td class="d-flex">
                     <input type="text" disabled="disabled" value="1">
                     <div class="ml-2">
-                      <a href="#">
+                      <a href="javascript:;">
                         <img :src="$store.state.pcUrl+'top.jpg'">
                       </a>
                       <br>
-                      <a href="#">
+                      <a href="javascript:;">
                         <img :src="$store.state.pcUrl+'down.jpg'">
                       </a>
                     </div>
                     <p class="my_must ml-2 mt-2">件</p>
-                    <a href="login.html" class="ml-5 mt-2">
+                    <router-link to="/login" class="ml-5 mt-2">
                       <img :src="$store.state.pcUrl+'wjx.png'" class="pb-1">收藏该商品
-                    </a>
+                    </router-link>
                   </td>
                 </tr>
                 <tr>

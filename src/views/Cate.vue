@@ -6,8 +6,8 @@
       <div class="col-1"></div>
       <div class="col-2 ml-0 pl-0 pr-4">
         <nav class="breadcrumb">
-          <a href="#" class="breadcrumb-item">首页</a>
-          <a href="#" class="breadcrumb-item my_must">登录</a>
+          <router-link to="/" class="breadcrumb-item">首页</router-link>
+          <span class="breadcrumb-item my_must">登录</span>
         </nav>
         <img :src="$store.state.pcUrl+'TB2AwmOnFXXXXXjXXXXXXXXXXXX_!!693060164.jpg'">
         <img :src="$store.state.pcUrl+'O1CN011D59P5b9XzbdFir_!!693060164.jpg'">
@@ -23,9 +23,7 @@
         </div>
         <div class="my_border text-center cate-img">
           <br>
-
           <CateList :CateList="catelist"></CateList>
-
           <br>
         </div>
         <div class="bg-dark">

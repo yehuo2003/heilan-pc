@@ -4,8 +4,8 @@
     <div class="row">
       <div class="col-sm-12">
         <nav class="breadcrumb">
-          <a href="#" class="breadcrumb-item">首页</a>
-          <a href="#" class="breadcrumb-item my_must">登录</a>
+          <router-link to="/" class="breadcrumb-item">首页</router-link>
+          <span class="breadcrumb-item my_must">登录</span>
         </nav>
         <hr>
       </div>
@@ -77,7 +77,7 @@
             </div>
             <div>
               <button class="btn btn-dark">
-                <a href="reg.html" class="text-white">免费注册</a>
+                <router-link to="/reg" class="text-white">免费注册</router-link>
               </button>
             </div>
           </div>

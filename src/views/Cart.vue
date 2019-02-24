@@ -2,8 +2,8 @@
   <div class="container">
     <!-- 导航-->
     <nav class="breadcrumb">
-      <a href="javascript:;" class="breadcrumb-item">首页</a>
-      <a href="javascript:;" class="breadcrumb-item my_must">购物车</a>
+      <router-link to="/" class="breadcrumb-item">首页</router-link>
+      <span class="breadcrumb-item my_must">购物车</span>
     </nav>
     <!-- 卡片-->
     <div class="card">
@@ -51,10 +51,10 @@
         <!-- 继续购物-->
         <div>
           <button class="btn btn-danger">
-            <a href="goods.html" class="text-white">继续购物</a>
+            <router-link to="/goods" class="text-white">继续购物</router-link>
           </button>
           &nbsp;&nbsp;
-          <a href="404.html">清空购物袋</a>
+          <router-link to="/Not">清空购物袋</router-link>
         </div>
         <div class="float-right">
           <h5 class="bg-secondary text-white p-2">总计</h5>
