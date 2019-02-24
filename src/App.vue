@@ -15,6 +15,9 @@
 a {
   color: #444;
 }
+a:hover {
+  text-decoration: none;
+}
 .my_must {
   color: #999 !important;
 }
@@ -38,5 +41,9 @@ div.my_border a.m-3:hover {
   color: #ccc;
   font-weight: bold;
   font-size: 20px;
+}
+.org:hover {
+  color: #ff5200 !important;
+  text-decoration: none;
 }
 </style>

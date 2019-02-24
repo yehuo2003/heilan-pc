@@ -56,29 +56,14 @@
                   <th>尺码</th>
                   <td>
                     <div class="mb-5 mt-3">
-                      <a href="#" class="my_chima m-1">
-                        <span>54</span>
-                        <span class="bg-secondary">(185/100A)</span>
-                      </a>&nbsp;
-                      <a href="#" class="my_chima m-1">
-                        <span>50</span>
-                        <span class="bg-secondary">(175/92A)</span>
-                      </a>
-                      <a href="#" class="my_chima m-1">
-                        <span>52</span>
-                        <span class="bg-secondary">(180/96A)</span>
-                      </a>&nbsp;
-                      <a href="#" class="my_chima m-1">
-                        <span>48</span>
-                        <span class="bg-secondary">(170/88A)</span>
-                      </a>
-                      <a href="#" class="my_chima m-1">
-                        <span>46</span>
-                        <span class="bg-secondary">(165/84A)</span>
-                      </a>&nbsp;
-                      <a href="#" class="my_chima m-1">
-                        <span>56</span>
-                        <span class="bg-secondary">(190/104A)</span>
+                      <a
+                        v-for="item of sizeList"
+                        :key="item.id"
+                        href="javascript:;"
+                        class="my_chima m-1"
+                      >
+                        <span>{{item.num}}</span>
+                        <p class="bg-secondary">{{item.size}}</p>
                       </a>
                     </div>
                   </td>
@@ -130,74 +115,7 @@
               <img :src="$store.state.pcUrl+'O1CN011D59P5b9XzbdFir_!!693060164.jpg'">
               <img :src="$store.state.pcUrl+'TB21oxlXjihSKJjy0FfXXbGzFXa_!!1657259311.jpg'">
               <!-- 导航列表-->
-              <div>
-                <a href="#" class="h4 font-weight-bold">2018秋季特卖</a>
-                <ul class="list-unstyled ml-3 mb-5">
-                  <li>
-                    <a href="cate.html">衬衫</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">大衣</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">型男外套</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">个性卫衣</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">长袖T恤</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">夹克</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">针织衫/毛衫</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">牛仔裤</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">休闲裤</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">西服</a>
-                  </li>
-                </ul>
-                <a href="#" class="h4 font-weight-bold">2018冬季新品</a>
-                <ul class="list-unstyled ml-3">
-                  <li>
-                    <a href="cate.html">羽绒服</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">保暖衬衫</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">型男外套</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">个性卫衣</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">大衣</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">夹克</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">针织衫/毛衫</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">牛仔裤</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">休闲裤</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">西服</a>
-                  </li>
-                </ul>
-              </div>
+              <SideBar></SideBar>
               <!-- 热销排行-->
               <div class="bg-dark">
                 <p class="text-white pl-3">
@@ -207,46 +125,7 @@
               </div>
               <div class="my_border text-center">
                 <br>
-                <a href="#">
-                  <img :src="$store.state.pcUrl+'HNTAJ3V053A_13457_1--w_460_h_460.jpg'">
-                  <p>HLA海澜之家撞色圆领长袖</p>
-                  <p>
-                    售价
-                    <span>￥98.00</span>
-                  </p>
-                </a>
-                <a href="#">
-                  <img :src="$store.state.pcUrl+'HNEAD3V666A_18563_1--w_460_h_460.jpg'">
-                  <p>HLA海澜之家磨毛纯色长袖</p>
-                  <p>
-                    售价
-                    <span>￥178.00</span>
-                  </p>
-                </a>
-                <a href="#">
-                  <img :src="$store.state.pcUrl+'HNZWJ3V043A_18153_1--w_460_h_460.jpg'">
-                  <p>HLA海澜之家经典套头</p>
-                  <p>
-                    售价
-                    <span>￥128.00</span>
-                  </p>
-                </a>
-                <a href="#">
-                  <img :src="$store.state.pcUrl+'HWJAJ3V268A_15849_1--w_460_h_460.jpg'">
-                  <p>HLA海澜之家时尚棒球夹克</p>
-                  <p>
-                    售价
-                    <span>￥298.00</span>
-                  </p>
-                </a>
-                <a href="#">
-                  <img :src="$store.state.pcUrl+'HKCAD3V239A_19110_1--w_460_h_460.jpg'">
-                  <p>HLA海澜之家针织运动休闲裤</p>
-                  <p>
-                    售价
-                    <span>￥198.00</span>
-                  </p>
-                </a>
+                <CateList :CateList="CateList"></CateList>
                 <br>
               </div>
             </div>
@@ -267,27 +146,7 @@
               </ul>
               <div id="myTabContent" class="tab-content">
                 <div id="coll-one" class="tab-pane fade in active">
-                  <img :src="$store.state.pcUrl+'O1CN011D59QBOjThD682y_!!693060164.jpg'">
-                  <img :src="$store.state.pcUrl+'O1CN011D59Q95VygDsE99_!!693060164.jpg'">
-                  <img :src="$store.state.pcUrl+'5b534bacN4c758fc5.jpg'">
-                  <img :src="$store.state.pcUrl+'5b534badN1109998f.jpg'">
-                  <img :src="$store.state.pcUrl+'5b534baeN1d53b948.jpg'">
-                  <img :src="$store.state.pcUrl+'5b534bafNe83c35f3.png'">
-                  <img :src="$store.state.pcUrl+'5b534bb0N239f3c77.png'">
-                  <img :src="$store.state.pcUrl+'big1.jpg'">
-                  <img :src="$store.state.pcUrl+'big4.jpg'">
-                  <img :src="$store.state.pcUrl+'big5.jpg'">
-                  <img :src="$store.state.pcUrl+'big6.jpg'">
-                  <img :src="$store.state.pcUrl+'big7.jpg'">
-                  <img :src="$store.state.pcUrl+'big8.jpg'">
-                  <img :src="$store.state.pcUrl+'big9.jpg'">
-                  <img :src="$store.state.pcUrl+'big10.jpg'">
-                  <img :src="$store.state.pcUrl+'big11.jpg'">
-                  <img :src="$store.state.pcUrl+'big12.jpg'">
-                  <img :src="$store.state.pcUrl+'big13.jpg'">
-                  <img :src="$store.state.pcUrl+'big14.jpg'">
-                  <img :src="$store.state.pcUrl+'big15.jpg'">
-                  <img :src="$store.state.pcUrl+'big16.jpg'">
+                  <img v-for="item of content" :key="item.id" :src="$store.state.pcUrl+item.img">
                 </div>
                 <!-- 累计评价-->
                 <div id="coll-three" class="tab-pane fade">
@@ -311,48 +170,7 @@
           <div>
             <span>-----还买过-----</span>
           </div>
-          <div>
-            <a href="#">
-              <img :src="$store.state.pcUrl+'HNTAJ3V053A_13457_1--w_460_h_460.jpg'">
-              <p>HLA海澜之家撞色圆领长袖</p>
-              <p>
-                售价
-                <span>￥98.00</span>
-              </p>
-            </a>
-            <a href="#">
-              <img :src="$store.state.pcUrl+'HNEAD3V666A_18563_1--w_460_h_460.jpg'">
-              <p>HLA海澜之家磨毛纯色长袖</p>
-              <p>
-                售价
-                <span>￥178.00</span>
-              </p>
-            </a>
-            <a href="#">
-              <img :src="$store.state.pcUrl+'HNZWJ3V043A_18153_1--w_460_h_460.jpg'">
-              <p>HLA海澜之家经典套头</p>
-              <p>
-                售价
-                <span>￥128.00</span>
-              </p>
-            </a>
-            <a href="#">
-              <img :src="$store.state.pcUrl+'HWJAJ3V268A_15849_1--w_460_h_460.jpg'">
-              <p>HLA海澜之家时尚棒球夹克</p>
-              <p>
-                售价
-                <span>￥298.00</span>
-              </p>
-            </a>
-            <a href="#">
-              <img :src="$store.state.pcUrl+'HKCAD3V239A_19110_1--w_460_h_460.jpg'">
-              <p>HLA海澜之家针织运动休闲裤</p>
-              <p>
-                售价
-                <span>￥198.00</span>
-              </p>
-            </a>
-          </div>
+          <CateList :CateList="CateList"></CateList>
         </div>
       </div>
     </div>
@@ -360,9 +178,75 @@
 </template>
 
 <script>
+import CateList from "../components/CateList";
+import SideBar from "../components/SideBar";
 export default {
   data() {
-    return {};
+    return {
+      sizeList: [
+        { id: 1, num: 54, size: "(185/100A)" },
+        { id: 2, num: 50, size: "(175/92A)" },
+        { id: 3, num: 52, size: "(180/96A)" },
+        { id: 4, num: 48, size: "(170/88A)" },
+        { id: 5, num: 46, size: "(165/84A)" },
+        { id: 6, num: 56, size: "(190/104A)" }
+      ],
+      content: [
+        { id: 1, img: "O1CN011D59QBOjThD682y_!!693060164.jpg" },
+        { id: 2, img: "O1CN011D59Q95VygDsE99_!!693060164.jpg" },
+        { id: 3, img: "5b534bacN4c758fc5.jpg" },
+        { id: 4, img: "5b534badN1109998f.jpg" },
+        { id: 5, img: "5b534baeN1d53b948.jpg" },
+        { id: 6, img: "5b534bafNe83c35f3.png" },
+        { id: 7, img: "5b534bb0N239f3c77.png" },
+        { id: 8, img: "big1.jpg" },
+        { id: 9, img: "big4.jpg" },
+        { id: 10, img: "big5.jpg" },
+        { id: 11, img: "big6.jpg" },
+        { id: 12, img: "big7.jpg" },
+        { id: 13, img: "big8.jpg" },
+        { id: 14, img: "big9.jpg" },
+        { id: 15, img: "big10.jpg" },
+        { id: 16, img: "big11.jpg" },
+        { id: 17, img: "big12.jpg" },
+        { id: 18, img: "big13.jpg" },
+        { id: 19, img: "big14.jpg" },
+        { id: 20, img: "big15.jpg" },
+        { id: 21, img: "big16.jpg" }
+      ],
+      CateList: [
+        {
+          id: 1,
+          title: "HLA海澜之家撞色圆领长袖",
+          img: "HNTAJ3V053A_13457_1--w_460_h_460.jpg",
+          price: 98.0
+        },
+        {
+          id: 2,
+          title: "HLA海澜之家磨毛纯色长袖",
+          img: "HNEAD3V666A_18563_1--w_460_h_460.jpg",
+          price: 178.0
+        },
+        {
+          id: 3,
+          title: "HLA海澜之家经典套头",
+          img: "HNZWJ3V043A_18153_1--w_460_h_460.jpg",
+          price: 128.0
+        },
+        {
+          id: 4,
+          title: "HLA海澜之家时尚棒球夹克",
+          img: "HWJAJ3V268A_15849_1--w_460_h_460.jpg",
+          price: 298.0
+        },
+        {
+          id: 5,
+          title: "HLA海澜之家针织运动休闲裤",
+          img: "HKCAD3V239A_19110_1--w_460_h_460.jpg",
+          price: 198.0
+        }
+      ]
+    };
   },
   methods: {
     isloading() {
@@ -374,45 +258,6 @@ export default {
       my$("btn").onclick = function() {
         bd.className = bd.className != "cls" ? "cls" : "";
       };
-
-      //购物车
-      $(".btn-danger").click(function() {
-        //先初始化购物车数量为0
-        var cateNum = 0;
-        var addImg = $(".addImg");
-        var btn = $("#btn");
-        //克隆一张小图片
-        var cloneImg = addImg.clone();
-        cloneImg.css({
-          position: "absolute",
-          top: addImg.offset().top,
-          left: addImg.offset().left,
-          "z-index": 10,
-          opacity: ".5"
-        });
-        cloneImg.appendTo($("body")),
-          animate(
-            {
-              top: btn.offset().top,
-              left: btn.offset().left
-            },
-            2000,
-            function() {
-              cloneImg.animate(
-                {
-                  //添加购物车后消失
-                  width: 0,
-                  height: 0
-                },
-                function() {
-                  //添加成功后，购物车数量+1
-                  $("cateNum").html(++cateNum);
-                  $(this).detach(); //移除元素
-                }
-              );
-            }
-          );
-      });
 
       //根据class获取页面元素 拿到的是数组对象
       function $Cls(cname) {
@@ -481,6 +326,10 @@ export default {
   },
   mounted() {
     this.isloading();
+  },
+  components: {
+    CateList,
+    SideBar
   }
 };
 </script>
@@ -589,7 +438,7 @@ th {
 }
 .my_chima {
   width: 62px;
-  height: 37px;
+  height: 38px;
   border: 2px solid #ccc;
   float: left;
   text-align: center;

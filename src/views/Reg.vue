@@ -5,7 +5,7 @@
       <div class="col-sm-12">
         <nav class="breadcrumb">
           <a href="index.html" class="breadcrumb-item">首页</a>
-          <a href="#" class="breadcrumb-item my_must">免费注册</a>
+          <a href="javascript:;" class="breadcrumb-item my_must">免费注册</a>
         </nav>
         <hr>
       </div>
@@ -40,25 +40,14 @@
             <th>验证码：</th>
             <td>
               <input type="text">
-              <a href="#">&nbsp;&nbsp;看不清换一张</a>
-            </td>
-          </tr>
-          <tr>
-            <th>手机验证码：</th>
-            <td class="d-flex mt-5">
-              <input type="text" class="form-control w-25">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <input
-                type="button"
-                value="获取手机验证码"
-                class="btn btn-danger my_btn2"
-              >
+              <a href="javascript">&nbsp;&nbsp;看不清换一张</a>
             </td>
           </tr>
           <tr class="tr1">
             <td colspan="2">
               <p>
                 <input type="checkbox" checked="checked">我已经阅读并接受《
-                <a href="faq.html" class="my_must">海澜之家服务条款</a>》
+                <router-link to="/faq" class="my_must">海澜之家服务条款</router-link>》
               </p>
             </td>
           </tr>
@@ -66,7 +55,7 @@
             <th colspan="2" class="pt-0 mt-0">
               <p>
                 <input type="button" value="提交" class="btn btn-danger my_btn1 mr-5">
-                <a href="login.html">返回登录</a>
+                <router-link to="/login">返回登录</router-link>
               </p>
             </th>
           </tr>

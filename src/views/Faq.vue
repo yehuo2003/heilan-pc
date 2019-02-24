@@ -18,9 +18,9 @@
         <div class="text-left sfq" id="parent">
           <div class="card">
             <div class="card-header">
-              <a href="#coll-1" data-toggle="collapse" class="card-link">
+              <router-link :to="coll-1" data-toggle="collapse" class="card-link">
                 <img :src="$store.state.pcUrl+'r.jpg'">新手指南
-              </a>
+              </router-link>
             </div>
             <div id="coll-1" class="collapse show" data-parent="#parent">
               <ul class="card-body list-group p-0">
@@ -552,7 +552,19 @@ Cookie的使用
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {};
+  }
+};
+</script>
+
+
 <style scoped>
+.col-10 {
+  min-height: 700px;
+}
 .card img {
   padding-right: 5px;
 }

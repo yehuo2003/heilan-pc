@@ -4,9 +4,9 @@
     <div class="row">
       <div class="col-sm-12">
         <nav class="breadcrumb">
-          <span href="#" class="breadcrumb-item">首页</span>
-          <span href="#" class="breadcrumb-item my_must">我的家人</span>
-          <span href="#" class="breadcrumb-item my_must">全部订单</span>
+          <span class="breadcrumb-item">首页</span>
+          <span class="breadcrumb-item my_must">我的家人</span>
+          <span class="breadcrumb-item my_must">全部订单</span>
         </nav>
         <hr>
       </div>
@@ -47,13 +47,13 @@
                 <a href="#coll-2" data-toggle="collapse">管理个人信息</a>
               </li>
               <li class="list-group-item list-group-item-light">
-                <a href="cart.html">我的购物车</a>
+                <router-link to="cart">我的购物车</router-link>
               </li>
               <li class="list-group-item list-group-item-light">
-                <a href="login.html">我的评价</a>
+                <router-link to="login">我的评价</router-link>
               </li>
               <li class="list-group-item list-group-item-light border-bottom-0">
-                <a href="cate.html">挑选更多</a>
+                <router-link to="cate">挑选更多</router-link>
               </li>
             </ul>
             <div class="card-header">
@@ -70,7 +70,7 @@
       <div class="col-10 mb-5">
         <div id="coll">
           <!-- 我的订单-->
-          <div id="coll-1" class="collapse" data-parent="#order">
+          <div id="coll-1" class="collapse show" data-parent="#order">
             <div class="bq">
               <span>我的订单</span>
             </div>
@@ -146,6 +146,15 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {};
+  }
+};
+</script>
+
 
 <style scoped>
 .col-2 > div {

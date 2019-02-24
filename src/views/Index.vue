@@ -1,34 +1,23 @@
 <template>
   <div class="container p-0">
     <!--轮播图-->
-    <div id="my_car" class="carousel slide" data-ride="carousel">
+    <div id="my_car" class="carousel heilan-carousel slide" data-ride="carousel">
       <!--指示图-->
       <ul class="carousel-indicators">
-        <li data-target="#my_car" data-slide-to="0" class="active"></li>
-        <li data-target="#my_car" data-slide-to="1"></li>
-        <li data-target="#my_car" data-slide-to="2"></li>
-        <li data-target="#my_car" data-slide-to="3"></li>
+        <li
+          v-for="item of imglist"
+          :key="item.id"
+          :class="item.cls"
+          data-target="#my_car"
+          :data-slide-to="item.id"
+          class="active"
+        ></li>
       </ul>
       <!-- 轮播的图片-->
-      <div class="carousel-item active">
-        <a href="#">
-          <img :src="$store.state.pcUrl+'carousel_01.jpg'">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="#">
-          <img :src="$store.state.pcUrl+'carousel_02.jpg'">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="#">
-          <img :src="$store.state.pcUrl+'carousel_03.jpg'">
-        </a>
-      </div>
-      <div class="carousel-item">
-        <a href="#">
-          <img :src="$store.state.pcUrl+'carousel_04.jpg'">
-        </a>
+      <div v-for="item of imglist" :key="item.id" class="carousel-item" :class="item.cls">
+        <router-link to="/cate">
+          <img :src="$store.state.pcUrl+item.img">
+        </router-link>
       </div>
     </div>
     <!-- 小图：世界由你来更新-->
@@ -58,40 +47,17 @@
           </a>
         </div>
         <!-- 列表-->
-        <ul class="list-unstyled d-flex flex-wrap p-5 justify-content-between">
-          <a href="#" class="m-3">7.1为你的商务减负</a>
-          <a href="#" class="m-3">7.15猜不透的混搭智慧</a>
-          <a href="#" class="m-3">8.6玩转秋季就要层次感</a>
-          <a href="#" class="m-3">8.20时尚先生的换季法则</a>
-          <a href="#" class="m-3 pl-5">9.3音乐节的穿搭指南</a>
-          <a href="#" class="m-3">9.20唤醒生活的律动感</a>
+        <ul class="list-unstyled d-flex flex-wrap p-5 justify-content-between heilan-cars">
+          <router-link v-for="item of heilist" :key="item.id" to="/cate" class="m-3">{{item.title}}</router-link>
         </ul>
       </div>
     </div>
     <!-- 背景图-->
-    <div id="myScrollspy" style="background: url('http:127.0.0.1:3000/img/pc/bg1.jpg')">
+    <div id="myScrollspy">
       <div class="my_bg2 d-flex flex-wrap">
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PK3Zpdrr6sF_!!693060164.jpg'">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PLVIXVRESYE_!!693060164.jpg'">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PN9WzyNll7K_!!693060164.jpg'">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PKojwclNe6O_!!693060164.jpg'">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PMn2LCBDKxF_!!693060164.jpg'">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PMn18Pkg1Yb_!!693060164.jpg'">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PMFRgkoxzm3_!!693060164.jpg'">
-        </a>
+        <router-link v-for="item of bglist" :key="item.id" to="/goods">
+          <img :src="$store.state.pcUrl+item.img">
+        </router-link>
       </div>
       <div class="my_bg3">
         <!-- 精选专题-->
@@ -100,25 +66,10 @@
         <div id="slide" class="slide position-relative">
           <!-- 轮播的图片-->
           <ul class="list-unstyled">
-            <li>
-              <a href="#">
-                <img :src="$store.state.pcUrl+'O1CN011D59QIFprNXRHjE_!!693060164.jpg'" alt="0">
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img :src="$store.state.pcUrl+'O1CN011D59QJtu9jCRRep_!!693060164.jpg'" alt="1">
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img :src="$store.state.pcUrl+'5bea2a3bNd48cc0f7.jpg'" alt="2">
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img :src="$store.state.pcUrl+'O1CN011D59PMMJeUg9JFx_!!693060164.jpg'" alt="3">
-              </a>
+            <li v-for="item of carousel" :key="item.id">
+              <router-link to="/cate">
+                <img :src="$store.state.pcUrl+item.img" :alt="item.id">
+              </router-link>
             </li>
           </ul>
           <!-- 左右切换按钮 -->
@@ -137,87 +88,33 @@
     <div>
       <!--标签-->
       <div class="text-center pb-5 mb-5">
-        <a href="#">
+        <router-link to="/cate">
           <img :src="$store.state.pcUrl+'O1CN011D59PNFiWMyyFRc_!!693060164.jpg'">
-        </a>
+        </router-link>
       </div>
       <!-- 六宫格变色-->
       <div id="my_bg4" class="d-flex flex-wrap justify-content-around position-relative">
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PMpfaAdLxTQ_!!693060164.jpg'" class="yc_img">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PNeNMfq3do5_!!693060164.jpg'" class="yc_img">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59POLeXgzRo7I_!!693060164.jpg'" class="yc_img">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59POUzmfWaxRU_!!693060164.jpg'" class="yc_img">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PLipMYZuv3E_!!693060164.jpg'" class="yc_img">
-        </a>
-        <a href="#">
-          <img :src="$store.state.pcUrl+'O1CN011D59PNQtaRqZGGm_!!693060164.jpg'" class="yc_img">
-        </a>
+        <router-link v-for="item of Sixth" :key="item.id" to="/cate">
+          <img :src="$store.state.pcUrl+item.img" class="yc_img">
+        </router-link>
       </div>
       <div id="my_bg5" class="p-5 m-5 d-flex flex-wrap">
         <!-- 小图-->
-        <a href="#" class="pl-5">
+        <router-link to="/cate" class="pl-5">
           <img :src="$store.state.pcUrl+'O1CN011D59PNHI4FrSHwv_!!693060164.jpg'">
-        </a>
+        </router-link>
         <!-- 列表-->
         <div class="d-flex">
-          <ul class="list-unstyled ml-5 mr-3">
-            <li>
-              <a href="#">STIRT</a>
-            </li>
-            <li>
-              <a href="#">T-STIRT</a>
-            </li>
-            <li>
-              <a href="#">HOODIE</a>
-            </li>
-          </ul>
-          <ul class="list-unstyled ml-5 mr-3">
-            <li>
-              <a href="#">衬衫</a>
-            </li>
-            <li>
-              <a href="#">T-恤</a>
-            </li>
-            <li>
-              <a href="#">卫衣</a>
-            </li>
-          </ul>
-          <ul class="list-unstyled ml-5 mr-3">
-            <li>
-              <a href="#">JACKET</a>
-            </li>
-            <li>
-              <a href="#">CASUAL PANTS</a>
-            </li>
-            <li>
-              <a href="#">JEANS</a>
-            </li>
-          </ul>
-          <ul class="list-unstyled ml-5 pr-5 mr-2">
-            <li>
-              <a href="#">夹克</a>
-            </li>
-            <li>
-              <a href="#">休闲裤</a>
-            </li>
-            <li>
-              <a href="#">牛仔裤</a>
+          <ul v-for="item of goryList" :key="item.id" class="list-unstyled ml-5 pr-2">
+            <li v-for="i of item.list" :key="i.lid">
+              <router-link to="/cate" class="org">{{i.title}}</router-link>
             </li>
           </ul>
         </div>
         <br>
       </div>
       <div class="my_bg6 text-center pt-5 justify-content-between">
-        <a href="#">ALL PRODUCT</a>
+        <a href="#" class="mr-5">ALL PRODUCT</a>
         
         <a href="#">BACK TO TOP</a>
       </div>
@@ -229,27 +126,96 @@
       </a>
     </div>
     <!-- 答疑列表-->
-    <ul class="list-group faq">
-      <a href="cate.html" class="list-group-item list-group-item-action">
-        <img :src="$store.state.pcUrl+'faq1.png'">
-      </a>
-      <a href="cate.html" class="list-group-item list-group-item-action">
-        <img :src="$store.state.pcUrl+'faq3.png'">
-      </a>
-      <a href="faq.html" class="list-group-item list-group-item-action">
-        <img :src="$store.state.pcUrl+'faq2.png'">
-      </a>
-      <a href="cart.html" class="list-group-item list-group-item-action">
-        <img :src="$store.state.pcUrl+'faq4.png'">
-      </a>
-    </ul>
+    <heilan-Mentoring :Mentoring="Mentoring"></heilan-Mentoring>
   </div>
 </template>
 
 <script>
+import Mentoring from "../components/Mentoring";
 export default {
   data() {
-    return {};
+    return {
+      imglist: [
+        { id: 0, img: "carousel_01.jpg", cls: "active" },
+        { id: 1, img: "carousel_02.jpg", cls: "" },
+        { id: 2, img: "carousel_03.jpg", cls: "" },
+        { id: 3, img: "carousel_04.jpg", cls: "" }
+      ],
+      heilist: [
+        { id: 1, title: "7.1为你的商务减负" },
+        { id: 2, title: "7.15猜不透的混搭智慧" },
+        { id: 3, title: "8.6玩转秋季就要层次感" },
+        { id: 5, title: "8.2音乐节的穿搭指南" },
+        { id: 4, title: "9.30时尚先生的换季法则" },
+        { id: 6, title: "9.20唤醒生活的律动感" }
+      ],
+      bglist: [
+        { id: 1, img: "O1CN011D59PK3Zpdrr6sF_!!693060164.jpg" },
+        { id: 2, img: "O1CN011D59PLVIXVRESYE_!!693060164.jpg" },
+        { id: 3, img: "O1CN011D59PN9WzyNll7K_!!693060164.jpg" },
+        { id: 4, img: "O1CN011D59PKojwclNe6O_!!693060164.jpg" },
+        { id: 5, img: "O1CN011D59PMn2LCBDKxF_!!693060164.jpg" },
+        { id: 6, img: "O1CN011D59PMn18Pkg1Yb_!!693060164.jpg" },
+        { id: 7, img: "O1CN011D59PMFRgkoxzm3_!!693060164.jpg" }
+      ],
+      carousel: [
+        { id: 0, img: "O1CN011D59QIFprNXRHjE_!!693060164.jpg" },
+        { id: 1, img: "O1CN011D59QJtu9jCRRep_!!693060164.jpg" },
+        { id: 2, img: "5bea2a3bNd48cc0f7.jpg" },
+        { id: 3, img: "O1CN011D59PMMJeUg9JFx_!!693060164.jpg" }
+      ],
+      Sixth: [
+        { id: 1, img: "O1CN011D59PMpfaAdLxTQ_!!693060164.jpg" },
+        { id: 2, img: "O1CN011D59PNeNMfq3do5_!!693060164.jpg" },
+        { id: 3, img: "O1CN011D59POLeXgzRo7I_!!693060164.jpg" },
+        { id: 4, img: "O1CN011D59POUzmfWaxRU_!!693060164.jpg" },
+        { id: 5, img: "O1CN011D59PLipMYZuv3E_!!693060164.jpg" },
+        { id: 6, img: "O1CN011D59PNQtaRqZGGm_!!693060164.jpg" }
+      ],
+      goryList: [
+        {
+          id: 1,
+          list: [
+            { lid: 1, title: "STIRT" },
+            { lid: 2, title: "T-STIRT" },
+            { lid: 3, title: "HOODIE" }
+          ]
+        },
+        {
+          id: 2,
+          list: [
+            { lid: 1, title: "衬衫" },
+            { lid: 2, title: "T-恤" },
+            { lid: 3, title: "卫衣" }
+          ]
+        },
+        {
+          id: 3,
+          list: [
+            { lid: 1, title: "JACKET" },
+            { lid: 2, title: "CASUAL PANTS" },
+            { lid: 3, title: "JEANS" }
+          ]
+        },
+        {
+          id: 4,
+          list: [
+            { lid: 1, title: "夹克" },
+            { lid: 2, title: "休闲裤" },
+            { lid: 3, title: "牛仔裤" }
+          ]
+        }
+      ],
+      Mentoring: [
+        { id: 1, img: "faq1.png", to: "/cate" },
+        { id: 2, img: "faq2.png", to: "/cate" },
+        { id: 3, img: "faq3.png", to: "/faq" },
+        { id: 4, img: "faq4.png", to: "/cart" }
+      ]
+    };
+  },
+  components: {
+    "heilan-Mentoring": Mentoring
   },
   methods: {
     isload() {
@@ -405,8 +371,11 @@ export default {
 #my_car .carousel-item {
   overflow: hidden !important;
 }
-.carousel {
-  height: 700px;
+.heilan-cars {
+  margin-top: 320px;
+}
+.heilan-carousel {
+  min-height: 700px;
 }
 .carousel-indicators {
   bottom: 39px;
@@ -458,7 +427,7 @@ export default {
   left: 90px;
 }
 #myScrollspy {
-  background: url("http:127.0.0.1:3000/img/pc/bg1.jpg");
+  /* background: url("http://yehuo-img.stor.sinaapp.com/img/home/carousel_01.jpg"); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;

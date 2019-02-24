@@ -1,86 +1,19 @@
 <template>
-  <div class="container">
+  <div class="container heilan-cate">
     <!-- 商品详情，左：服务热线，右：详情介绍-->
     <div class="row">
       <!-- 左：服务热线-->
       <div class="col-1"></div>
       <div class="col-2 ml-0 pl-0 pr-4">
         <nav class="breadcrumb">
-          <a href="#" class="breadcrumb-item text-info">首页</a>
-          <a href="#" class="breadcrumb-item my_must text-info">登录</a>
+          <a href="#" class="breadcrumb-item">首页</a>
+          <a href="#" class="breadcrumb-item my_must">登录</a>
         </nav>
         <img :src="$store.state.pcUrl+'TB2AwmOnFXXXXXjXXXXXXXXXXXX_!!693060164.jpg'">
         <img :src="$store.state.pcUrl+'O1CN011D59P5b9XzbdFir_!!693060164.jpg'">
         <img :src="$store.state.pcUrl+'TB21oxlXjihSKJjy0FfXXbGzFXa_!!1657259311.jpg'">
         <!-- 导航列表-->
-        <div>
-          <a href="#" class="h4 font-weight-bold">2018秋季特卖</a>
-          <ul class="list-unstyled ml-3 mb-5">
-            <li>
-              <a href="#">衬衫</a>
-            </li>
-            <li>
-              <a href="#">大衣</a>
-            </li>
-            <li>
-              <a href="#">型男外套</a>
-            </li>
-            <li>
-              <a href="#">个性卫衣</a>
-            </li>
-            <li>
-              <a href="#">长袖T恤</a>
-            </li>
-            <li>
-              <a href="#">夹克</a>
-            </li>
-            <li>
-              <a href="#">针织衫/毛衫</a>
-            </li>
-            <li>
-              <a href="#">牛仔裤</a>
-            </li>
-            <li>
-              <a href="#">休闲裤</a>
-            </li>
-            <li>
-              <a href="#">西服</a>
-            </li>
-          </ul>
-          <a href="#" class="h4 font-weight-bold">2018冬季新品</a>
-          <ul class="list-unstyled ml-3">
-            <li>
-              <a href="#">羽绒服</a>
-            </li>
-            <li>
-              <a href="#">保暖衬衫</a>
-            </li>
-            <li>
-              <a href="#">型男外套</a>
-            </li>
-            <li>
-              <a href="#">个性卫衣</a>
-            </li>
-            <li>
-              <a href="#">大衣</a>
-            </li>
-            <li>
-              <a href="#">夹克</a>
-            </li>
-            <li>
-              <a href="#">针织衫/毛衫</a>
-            </li>
-            <li>
-              <a href="#">牛仔裤</a>
-            </li>
-            <li>
-              <a href="#">休闲裤</a>
-            </li>
-            <li>
-              <a href="#">西服</a>
-            </li>
-          </ul>
-        </div>
+        <SideBar></SideBar>
         <!-- 热销排行-->
         <div class="bg-dark">
           <p class="text-white pl-3">
@@ -88,48 +21,11 @@
             <img :src="$store.state.pcUrl+'selling.jpg'">
           </p>
         </div>
-        <div class="my_border text-center">
+        <div class="my_border text-center cate-img">
           <br>
-          <a href="goods.html">
-            <img :src="$store.state.pcUrl+'HNTAJ3V053A_13457_1--w_460_h_460.jpg'">
-            <p>HLA海澜之家撞色圆领长袖</p>
-            <p>
-              售价
-              <span>￥98.00</span>
-            </p>
-          </a>
-          <a href="#">
-            <img :src="$store.state.pcUrl+'HNEAD3V666A_18563_1--w_460_h_460.jpg'">
-            <p>HLA海澜之家磨毛纯色长袖</p>
-            <p>
-              售价
-              <span>￥178.00</span>
-            </p>
-          </a>
-          <a href="#">
-            <img :src="$store.state.pcUrl+'HNZWJ3V043A_18153_1--w_460_h_460.jpg'">
-            <p>HLA海澜之家经典套头</p>
-            <p>
-              售价
-              <span>￥128.00</span>
-            </p>
-          </a>
-          <a href="#">
-            <img :src="$store.state.pcUrl+'HWJAJ3V268A_15849_1--w_460_h_460.jpg'">
-            <p>HLA海澜之家时尚棒球夹克</p>
-            <p>
-              售价
-              <span>￥298.00</span>
-            </p>
-          </a>
-          <a href="#">
-            <img :src="$store.state.pcUrl+'HKCAD3V239A_19110_1--w_460_h_460.jpg'">
-            <p>HLA海澜之家针织运动休闲裤</p>
-            <p>
-              售价
-              <span>￥198.00</span>
-            </p>
-          </a>
+
+          <CateList :CateList="catelist"></CateList>
+
           <br>
         </div>
         <div class="bg-dark">
@@ -146,27 +42,9 @@
             <!-- 排序标签-->
             <ul class="nav m-0">
               <li class="nav-item">排序</li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#" class="bg-white border-right-0">
-                  销量
-                  <img :src="$store.state.pcUrl+'icon_down.png'">
-                </a>
-              </li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#" class="bg-white border-right-0">
-                  价格
-                  <img :src="$store.state.pcUrl+'icon_down.png'">
-                </a>
-              </li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#" class="bg-white border-right-0">
-                  好评
-                  <img :src="$store.state.pcUrl+'icon_down.png'">
-                </a>
-              </li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#" class="bg-white border-right-0">
-                  人气
+              <li v-for="item of navlist" :key="item.id" class="nav-item ml-1 mr-1">
+                <a href="javascript:;" class="bg-white border-right-0">
+                  {{item.title}}
                   <img :src="$store.state.pcUrl+'icon_down.png'">
                 </a>
               </li>
@@ -175,131 +53,34 @@
                   <option value="time">按上架时间排序</option>
                   <option value="remen">按最热排序</option>
                 </select>
-              </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <li class="nav-item ml-5">
-                <span class="my_fz">当前40/221件商品</span>
-              </li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#">1</a>
-              </li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#" class="text-primary">2</a>
-              </li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#" class="text-primary">3</a>
-              </li>
-              <li class="nav-item ml-0 mr-0">
-                <a href="#" class="text-muted">上一页</a>
-              </li>
-              <li class="nav-item mr-0">
-                <a href="#" class="text-primary">下一页</a>
               </li>
             </ul>
           </div>
           <div class="card-body d-flex flex-wrap">
-            <div>
-              <a href="goods.html" class="text-center">
-                <img :src="$store.state.pcUrl+'HNEAD1R002A_21816_1--w_460_h_460.jpg'">
-                <p>HLA海澜之家牛津纺水洗休闲衬衫</p>
+            <div v-for="item of catelist" :key="item.id">
+              <router-link to="goods" class="text-center">
+                <img :src="$store.state.pcUrl+item.img">
+                <p>{{item.title}}</p>
                 <p>
                   售价
-                  <span>￥98.00</span>
+                  <span>{{item.price | currency}}</span>
                 </p>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="text-center">
-                <img :src="$store.state.pcUrl+'HNEAD4E612A_21812_1--w_460_h_460.jpg'">
-                <p>HLA海澜之家长袖牛仔保暖衬衫</p>
-                <p>
-                  售价
-                  <span>￥328.00</span>
-                </p>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="text-center">
-                <img :src="$store.state.pcUrl+'HNEAD4E222A_21798_1--w_460_h_460.jpg'">
-                <p>HLA海澜之家色织长袖衬衫2018</p>
-                <p>
-                  售价
-                  <span>￥298.00</span>
-                </p>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="text-center">
-                <img :src="$store.state.pcUrl+'HNEAD4E265A_21792_1--w_460_h_460.jpg'">
-                <p>HLA海澜之家时尚条纹长袖衬衫</p>
-                <p>
-                  售价
-                  <span>￥298.00</span>
-                </p>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="text-center">
-                <img :src="$store.state.pcUrl+'HNEAD4E222A_21798_1--w_460_h_460.jpg'">
-                <p>HLA海澜之家格纹提花长袖衬衫</p>
-                <p>
-                  售价
-                  <span>￥98.00</span>
-                </p>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="text-center">
-                <img :src="$store.state.pcUrl+'HNEAD1R005A_10665_1--w_460_h_460.jpg'">
-                <p>HLA海澜之家牛津纺清新休闲衬衫</p>
-                <p>
-                  售价
-                  <span>￥328.00</span>
-                </p>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="text-center">
-                <img :src="$store.state.pcUrl+'HNEAD4E245A_16978_1--w_460_h_460.jpg'">
-                <p>HLA海澜之家长袖提花保暖衬衫</p>
-                <p>
-                  售价
-                  <span>￥278.00</span>
-                </p>
-              </a>
-            </div>
-            <div>
-              <a href="#" class="text-center">
-                <img :src="$store.state.pcUrl+'HNEAD4E218A_21767_1--w_460_h_460.jpg'">
-                <p>HLA海澜之家几何花纹长袖衬衫</p>
-                <p>
-                  售价
-                  <span>￥278.00</span>
-                </p>
-              </a>
+              </router-link>
             </div>
           </div>
-          <div class="card-footer p-0 position-relative">
+          <div class="card-footer p-0 position-relative d-flex justify-content-between">
             <a href="#" class="position-relative">▲返回顶部</a>
-            <ul class="nav m-0 position-relative">
-              <li class="nav-item ml-5">
-                <span class="my_fz">当前40/221件商品</span>
-              </li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#">1</a>
-              </li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#" class="text-primary">2</a>
-              </li>
-              <li class="nav-item ml-1 mr-1">
-                <a href="#" class="text-primary">3</a>
-              </li>
-              <li class="nav-item ml-0 mr-0">
-                <a href="#" class="text-muted">上一页</a>
-              </li>
-              <li class="nav-item mr-0">
-                <a href="#" class="text-primary">下一页</a>
-              </li>
-            </ul>
+            <div class="block nav-get">
+              <el-pagination
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page.sync="currentPage"
+                :page-size="8"
+                layout="total, prev, pager, next"
+                :total="685"
+                background
+              ></el-pagination>
+            </div>
           </div>
         </div>
       </div>
@@ -308,14 +89,89 @@
 </template>
 
 <script>
+import CateList from "../components/CateList";
+import SideBar from "../components/SideBar";
 export default {
   data() {
-    return {};
+    return {
+      navlist: [
+        { id: 1, title: "销量" },
+        { id: 2, title: "价格" },
+        { id: 3, title: "好评" },
+        { id: 4, title: "人气" }
+      ],
+      catelist: [
+        {
+          id: 1,
+          title: "HLA海澜之家牛津纺水洗休闲衬衫",
+          img: "HNEAD1R002A_21816_1--w_460_h_460.jpg",
+          price: 98.0
+        },
+        {
+          id: 2,
+          title: "HLA海澜之家长袖牛仔保暖衬衫",
+          img: "HNEAD4E612A_21812_1--w_460_h_460.jpg",
+          price: 328.0
+        },
+        {
+          id: 3,
+          title: "HLA海澜之家色织长袖衬衫2018",
+          img: "HNEAD4E222A_21798_1--w_460_h_460.jpg",
+          price: 298.0
+        },
+        {
+          id: 4,
+          title: "HLA海澜之家时尚条纹长袖衬衫",
+          img: "HNEAD4E265A_21792_1--w_460_h_460.jpg",
+          price: 298.0
+        },
+        {
+          id: 5,
+          title: "HLA海澜之家格纹提花长袖衬衫",
+          img: "HNEAD4E222A_21798_1--w_460_h_460.jpg",
+          price: 98.0
+        },
+        {
+          id: 6,
+          title: "HLA海澜之家牛津纺清新休闲衬衫",
+          img: "HNEAD1R005A_10665_1--w_460_h_460.jpg",
+          price: 328.0
+        },
+        {
+          id: 7,
+          title: "HLA海澜之家长袖提花保暖衬衫",
+          img: "HNEAD4E245A_16978_1--w_460_h_460.jpg",
+          price: 278.0
+        },
+        {
+          id: 8,
+          title: "HLA海澜之家几何花纹长袖衬衫",
+          img: "HNEAD4E218A_21767_1--w_460_h_460.jpg",
+          price: 278.0
+        }
+      ],
+      currentPage: 1
+    };
+  },
+  methods: {
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    }
+  },
+  components: {
+    CateList,
+    SideBar
   }
 };
 </script>
 
 <style scoped>
+.breadcrumb {
+  background: #fff;
+}
 .my_border img {
   width: 172px;
   height: 172px;
@@ -384,6 +240,9 @@ ul > li > span {
 }
 .card-footer {
   height: 35px;
+}
+.heilan-cate .cate-img a img {
+  width: 172px !important;
 }
 </style>
 

@@ -2,39 +2,28 @@
   <div class="container">
     <!-- 导航-->
     <nav class="breadcrumb">
-      <a href="#" class="breadcrumb-item">首页</a>
-      <a href="#" class="breadcrumb-item my_must">购物车</a>
+      <a href="javascript:;" class="breadcrumb-item">首页</a>
+      <a href="javascript:;" class="breadcrumb-item my_must">购物车</a>
     </nav>
     <!-- 卡片-->
     <div class="card">
       <div class="card-header d-flex text-center p-0 justify-content-start">
-        <div>
-          <span>商品名称</span>
-        </div>
-        <div>
-          <span>库存</span>
-        </div>
-        <div>
-          <span>价格</span>
-        </div>
-        <div>
-          <span>数量</span>
-        </div>
-        <div>
-          <span>小计</span>
-        </div>
-        <div>
-          <span>操作</span>
+        <div v-for="item of cartitle" :key="item.id">
+          <span>{{item.title}}</span>
         </div>
       </div>
       <div class="card-body pt-0">
-        <div class="d-flex text-center border-bottom pb-3 mt-3">
+        <div
+          v-for="item of cartList"
+          :key="item.id"
+          class="d-flex text-center border-bottom pb-3 mt-3"
+        >
           <div class="d-flex text-left">
-            <img :src="$store.state.pcUrl+'HNEAD1R002A_21816_1--w_460_h_460.jpg'">
+            <img :src="$store.state.pcUrl+item.img">
             <div class="pl-3 pr-2">
-              <a href="#">
-                <p>HLA海澜之家牛津纺水洗休闲衬衫2019春季新品舒适透气长袖衬衫男HNEAD1R002A</p>
-                <p class="my_gray">颜色：粉红（净色）</p>
+              <a href="javascript:;">
+                <p>{{item.title}}</p>
+                <p class="my_gray">编号：HNEAD1R002A</p>
                 <p class="my_gray">尺码：175/96A(41)</p>
               </a>
             </div>
@@ -43,7 +32,7 @@
             <span class="my_line_height">有货</span>
           </div>
 
-          <span class="my_line_height pl-5">￥198.00</span>
+          <span class="my_line_height pl-5">{{item.price | currency}}</span>
 
           <div class="d-flex align-items-center pl-5 ml-5 pt-3">
             <button class="btn bg-white border-right-0 my_btn3">-</button>
@@ -51,35 +40,6 @@
             <button class="btn bg-white border-left-0 my_btn3">+</button>
           </div>
           <span class="my_line_height price d-block mr-5 pl-5">￥198.00</span>
-          <div class="my_line_height">
-            <button class="btn btn-danger pl-4 pr-4">
-              <img :src="$store.state.pcUrl+'rabth.png'">
-            </button>
-          </div>
-        </div>
-        <div class="d-flex text-center border-bottom pb-3 mt-3">
-          <div class="d-flex text-left">
-            <img :src="$store.state.pcUrl+'HNEAD4E612A_21812_1--w_460_h_460.jpg'">
-            <div class="pl-3 pr-2">
-              <a href="#">
-                <p>HLA海澜之家长袖牛仔保暖衬衫2018冬季新品加绒舒适长衬男HNEAD4E612A</p>
-                <p class="my_gray">颜色：牛仔蓝（净色）</p>
-                <p class="my_gray">尺码：170/88A(39)</p>
-              </a>
-            </div>
-          </div>
-          <div>
-            <span class="my_line_height">有货</span>
-          </div>
-
-          <span class="my_line_height pl-5">￥328.00</span>
-
-          <div class="d-flex align-items-center pl-5 ml-5 pt-3">
-            <button class="btn bg-white border-right-0 my_btn3">-</button>
-            <span class="w-25 my_span">1</span>
-            <button class="btn bg-white border-left-0 my_btn3">+</button>
-          </div>
-          <span class="my_line_height price d-block mr-5 pl-5">￥328.00</span>
           <div class="my_line_height">
             <button class="btn btn-danger pl-4 pr-4">
               <img :src="$store.state.pcUrl+'rabth.png'">
@@ -118,7 +78,32 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      cartitle: [
+        { id: 1, title: "商品名称" },
+        { id: 2, title: "库存" },
+        { id: 3, title: "价格" },
+        { id: 4, title: "数量" },
+        { id: 5, title: "小计" },
+        { id: 6, title: "操作" }
+      ],
+      cartList: [
+        {
+          id: 1,
+          title:
+            "HLA海澜之家长袖牛仔保暖衬衫2018冬季新品加绒舒适长衬男HNEAD4E612A",
+          price: 198.0,
+          img: "HNEAD1R002A_21816_1--w_460_h_460.jpg"
+        },
+        {
+          id: 2,
+          title:
+            "HLA海澜之家牛津纺水洗休闲衬衫2019春季新品舒适透气长袖衬衫男HNEAD1R002A",
+          price: 328.0,
+          img: "HNEAD4E612A_21812_1--w_460_h_460.jpg"
+        }
+      ]
+    };
   }
 };
 </script>

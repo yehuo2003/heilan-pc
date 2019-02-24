@@ -1,530 +1,361 @@
 <template>
-  <div id="header">
-    <header class="p-0">
-      <!-- 导航栏：左 右-->
-      <div class="row bg-ccc">
-        <!-- 左导航-->
-        <div class="col-sm-6">
+  <header id="header" class="p-0">
+    <!-- 导航栏：左 右-->
+    <div class="row bg-ccc">
+      <!-- 左导航-->
+      <div class="col-sm-6">
+        <ul class="d-flex list-unstyled justify-content-center mb-0">
+          <li>你好，欢迎来到海澜之家！</li>
+          <li>
+            <a href="login.html">
+              <b>请登录 |</b>
+            </a>
+          </li>
+          <li>
+            <a>
+              <b>&nbsp;合作账号登录</b>
+            </a>
+          </li>
+          <li>
+            &nbsp;
+            <a href="login.html">
+              <img :src="$store.state.pcUrl+'logo10.jpg'">
+              <img :src="$store.state.pcUrl+'qqimg.jpg'">
+              <img :src="$store.state.pcUrl+'taobaoimg.jpg'">
+            </a>
+          </li>
+          <li>
+            <a href="reg.html">
+              <b>&nbsp;| 免费注册</b>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 右导航-->
+      <div class="col-sm-6">
+        <div>
           <ul class="d-flex list-unstyled justify-content-center mb-0">
-            <li>你好，欢迎来到海澜之家！</li>
-            <li>
-              <a href="login.html">
-                <b>请登录 |</b>
-              </a>
+            <li v-for="item of rightList" :key="item.id" class="mr-1">
+              <a href="javascript:;">{{item.title}}</a>
             </li>
             <li>
-              <a>
-                <b>&nbsp;合作账号登录</b>
-              </a>
-            </li>
-            <li>
-              &nbsp;
-              <a href="login.html">
-                <img :src="$store.state.pcUrl+'logo10.jpg'">
-                <img :src="$store.state.pcUrl+'qqimg.jpg'">
-                <img :src="$store.state.pcUrl+'taobaoimg.jpg'">
-              </a>
-            </li>
-            <li>
-              <a href="reg.html">
-                <b>&nbsp;| 免费注册</b>
+              <a href="login.html" class="btn p-0 mb-1">
+                <img :src="$store.state.pcUrl+'logo10.jpg'">加关注
               </a>
             </li>
           </ul>
         </div>
-        <!-- 右导航-->
-        <div class="col-sm-6">
-          <div>
-            <ul class="d-flex list-unstyled justify-content-center mb-0">
-              <li>
-                <a href="order.html">我的海澜之家 |</a>
+      </div>
+    </div>
+    <!-- 标题：左 中 右-->
+    <!-- 左边附近门店-->
+    <div class="row">
+      <div class="col-4 align-content-center">
+        <div class="text-center mt-3">
+          <img :src="$store.state.pcUrl+'ditub.png'">
+          <p>附近门店</p>
+        </div>
+      </div>
+      <div class="col-4 text-center pr-5 mt-1">
+        <img :src="$store.state.pcUrl+'logo.png'">
+      </div>
+      <div class="col-4">
+        <div class="text-center mt-5 mr-5 pr-5">
+          <input type="text" value="冬季新品" class="input-group-sm h-50">
+          <a href="cate.html">
+            <img :src="$store.state.pcUrl+'TB2b.c1XRzkJKJjSspiXXXd4XXa_!!693060164.jpg'">
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- 导航栏-->
+    <div class="navBox position-relative">
+      <div class="row">
+        <div class="col-12 p-0">
+          <nav id="box">
+            <ul class="nav justify-content-center ml-5">
+              <li class="pt-2">
+                <router-link to="/">首页</router-link>
               </li>
-              <li>
-                <a href="faq.html">&nbsp在线客服 |</a>
-              </li>
-              <li class="cate">
-                <a href="cart.html">&nbsp我的购物袋有0件商品 |</a>
-              </li>
-              <li>
-                <a href="faq.html">&nbsp帮助&nbsp</a>
-              </li>
-              <li>
-                <a href="login.html" class="btn p-0 mb-1">
-                  <img :src="$store.state.pcUrl+'logo10.jpg'">加关注
-                </a>
+              <li v-for="item of navBarList" :key="item.id" class="nav-item">
+                <router-link to="/cate" class="nav-link">{{item.title}}</router-link>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
       </div>
-      <!-- 标题：左 中 右-->
-      <!-- 左边附近门店-->
-      <div class="row">
-        <div class="col-4 align-content-center">
-          <div class="text-center mt-3">
-            <img :src="$store.state.pcUrl+'ditub.png'">
-            <p>附近门店</p>
-          </div>
-        </div>
-        <div class="col-4 text-center pr-5 mt-1">
-          <img :src="$store.state.pcUrl+'logo.png'">
-        </div>
-        <div class="col-4">
-          <div class="text-center mt-5 mr-5 pr-5">
-            <input type="text" value="冬季新品" class="input-group-sm h-50">
-            <a href="cate.html">
-              <img :src="$store.state.pcUrl+'TB2b.c1XRzkJKJjSspiXXXd4XXa_!!693060164.jpg'">
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- 导航栏-->
-      <div class="navBox position-relative">
-        <div class="row">
-          <div class="col-12 p-0">
-            <nav id="box">
-              <ul class="nav justify-content-center ml-5">
-                <li>
-                  <a href="index.html" class="nav-link">首页</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">所有商品</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">火热新品</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">秋季热卖</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">卫衣</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">大衣</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">夹克</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">针织衫/毛衫</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">衬衫</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">休闲裤</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">牛仔裤</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">西服</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">林更新同款</a>
-                </li>
-                <li class="nav-item">
-                  <a href="cate.html" class="nav-link">潮男时尚</a>
+      <div id="content" class="position-absolute w-100 p-0">
+        <ul>
+          <li></li>
+          <li>
+            <div class="d-flex justify-content-start">
+              <ul v-for="item of liastnav" :key="item.id" class="m-5 list-unstyled">
+                <h6 class="mb-4 ml-2">{{item.title}}</h6>
+                <li v-for="i of item.list" :key="i.lid">
+                  <router-link to="/cate">{{i.title}}</router-link>
                 </li>
               </ul>
-            </nav>
-          </div>
-        </div>
-        <div id="content" class="position-absolute w-100 p-0">
-          <ul>
-            <li></li>
-            <li>
-              <div class="d-flex justify-content-start">
-                <ul class="m-5 list-unstyled">
-                  <h6>所有宝贝</h6>
-                  <li class="mt-5">
-                    <a href="cate.html">人气排序</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">销量排序</a>
-                  </li>
-                  <li>
-                    <a href="cate.html">价格排序</a>
-                  </li>
-                </ul>
-                <ul class="m-5 list-unstyled">
-                  <h6>冬季新品</h6>
-                  <li class="mt-5">
-                    <a href="#">人气排序</a>
-                  </li>
-                  <li>
-                    <a href="#">羽绒服</a>
-                  </li>
-                  <li>
-                    <a href="#">大衣</a>
-                  </li>
-                  <li>
-                    <a href="#">衬衫</a>
-                  </li>
-                  <li>
-                    <a href="#">夹克</a>
-                  </li>
-                </ul>
-                <ul class="m-5 list-unstyled">
-                  <h6>秋季新品</h6>
-                  <li class="mt-5">
-                    <a href="#">卫衣</a>
-                  </li>
-                  <li>
-                    <a href="#">长袖衬衫</a>
-                  </li>
-                  <li>
-                    <a href="#">长袖t恤</a>
-                  </li>
-                  <li>
-                    <a href="#">夹克</a>
-                  </li>
-                  <li>
-                    <a href="#">大衣</a>
-                  </li>
-                  <li>
-                    <a href="#">针织衫</a>
-                  </li>
-                  <li>
-                    <a href="#">休闲裤</a>
-                  </li>
-                  <li>
-                    <a href="#">牛仔裤</a>
-                  </li>
-                  <li>
-                    <a href="#">西服</a>
-                  </li>
-                </ul>
-                <ul class="m-5 list-unstyled">
-                  <h6>上装</h6>
-                  <li class="mt-5">
-                    <a href="#">卫衣</a>
-                  </li>
-                  <li>
-                    <a href="#">长袖衬衫</a>
-                  </li>
-                  <li>
-                    <a href="#">长袖t恤</a>
-                  </li>
-                  <li>
-                    <a href="#">夹克</a>
-                  </li>
-                  <li>
-                    <a href="#">大衣</a>
-                  </li>
-                  <li>
-                    <a href="#">针织衫</a>
-                  </li>
-                </ul>
-                <ul class="m-5 list-unstyled">
-                  <h6>裤装</h6>
-                  <li class="mt-5">
-                    <a href="#">西裤</a>
-                  </li>
-                  <li>
-                    <a href="#">休闲裤</a>
-                  </li>
-                  <li>
-                    <a href="#">牛仔裤</a>
-                  </li>
-                </ul>
-                <ul class="m-5 list-unstyled">
-                  <h6>价格区间</h6>
-                  <li class="mt-5">
-                    <a href="#">98-158</a>
-                  </li>
-                  <li>
-                    <a href="#">168-238</a>
-                  </li>
-                  <li>
-                    <a href="#">258-298</a>
-                  </li>
-                  <li>
-                    <a href="#">299-398</a>
-                  </li>
-                  <li>
-                    <a href="#">399-558</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <h6>冬季新品</h6>
-                  <li class="mt-5">
-                    <a href="#">人气排序</a>
-                  </li>
-                  <li>
-                    <a href="#">羽绒服</a>
-                  </li>
-                  <li>
-                    <a href="#">大衣</a>
-                  </li>
-                  <li>
-                    <a href="#">衬衫</a>
-                  </li>
-                  <li>
-                    <a href="#">夹克</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59pn863bqh4z3_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <h6>秋季热卖</h6>
-                  <li class="mt-5">
-                    <a href="#">卫衣</a>
-                  </li>
-                  <li>
-                    <a href="#">长袖衬衫</a>
-                  </li>
-                  <li>
-                    <a href="#">长袖t恤</a>
-                  </li>
-                  <li>
-                    <a href="#">夹克</a>
-                  </li>
-                  <li>
-                    <a href="#">大衣</a>
-                  </li>
-                  <li>
-                    <a href="#">针织衫</a>
-                  </li>
-                  <li>
-                    <a href="#">休闲裤</a>
-                  </li>
-                  <li>
-                    <a href="#">牛仔裤</a>
-                  </li>
-                  <li>
-                    <a href="#">西服</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59pjowexjlv1s_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">时尚易搭</a>
-                  </li>
-                  <li>
-                    <a href="#">加绒卫衣</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59pmaedu9i4um_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">保暖长款</a>
-                  </li>
-                  <li>
-                    <a href="#">时尚款</a>
-                  </li>
-                  <li>
-                    <a href="#">户外款</a>
-                  </li>
-                  <li>
-                    <a href="#">连帽款</a>
-                  </li>
-                  <li>
-                    <a href="#">大衣</a>
-                  </li>
-                  <li>
-                    <a href="#">针织衫</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59pn88cfxhdjb_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">双面穿夹克</a>
-                  </li>
-                  <li>
-                    <a href="#">摇粒绒夹克</a>
-                  </li>
-                  <li>
-                    <a href="#">牛仔夹克</a>
-                  </li>
-                  <li>
-                    <a href="#">皮夹克</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59plw73l9uyre_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">基础款</a>
-                  </li>
-                  <li>
-                    <a href="#">羊绒款</a>
-                  </li>
-                  <li>
-                    <a href="#">加长款</a>
-                  </li>
-                  <li>
-                    <a href="#">时尚假两件</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59plw73l9uyre_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">休闲衬衫</a>
-                  </li>
-                  <li>
-                    <a href="#">正装衬衫</a>
-                  </li>
-                  <li>
-                    <a href="#">针织衬衫</a>
-                  </li>
-                  <li>
-                    <a href="#">免烫衬衫</a>
-                  </li>
-                  <li>
-                    <a href="#">保暖衬衫</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59plxu5xavvvy_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">基础实穿</a>
-                  </li>
-                  <li>
-                    <a href="#">温暖磨毛</a>
-                  </li>
-                  <li>
-                    <a href="#">灯芯绒</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59pkailuz4h1r_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">基础牛仔</a>
-                  </li>
-                  <li>
-                    <a href="#">温暖加绒</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59pllue32gfcw_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">休闲西服</a>
-                  </li>
-                  <li>
-                    <a href="#">套装西服</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59plo6dlqybsw_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">夹克</a>
-                  </li>
-                  <li>
-                    <a href="#">针织衫</a>
-                  </li>
-                  <li>
-                    <a href="#">西服</a>
-                  </li>
-                  <li>
-                    <a href="#">休闲上衣</a>
-                  </li>
-                  <li>
-                    <a href="#">风衣</a>
-                  </li>
-                  <li>
-                    <a href="#">大衣</a>
-                  </li>
-                </ul>
-                <a href="#" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59plluztas8oj_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-            <li>
-              <div class="d-flex justify-content-start text-left">
-                <ul class="m-5 list-unstyled">
-                  <li>
-                    <a href="#">针织衫</a>
-                  </li>
-                  <li>
-                    <a href="#">休闲裤</a>
-                  </li>
-                  <li>
-                    <a href="#">牛仔裤</a>
-                  </li>
-                  <li>
-                    <a href="#">西服</a>
-                  </li>
-                </ul>
-                <a href="cate.html" class="m-5">
-                  <img :src="$store.state.pcUrl+'o1cn011d59plexgjp4trk_!!693060164.jpg'">
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </li>
+          <li v-for="(item,index) of navtitle" :key="index">
+            <div class="d-flex justify-content-start text-left">
+              <ul class="m-5 list-unstyled">
+                <h6 class="mb-4">{{item.title}}</h6>
+                <li v-for="t of item.list" :key="t.tid">
+                  <router-link to="/cate">{{t.title}}</router-link>
+                </li>
+              </ul>
+              <a href="cate.html" class="m-5">
+                <img :src="$store.state.pcUrl+item.img">
+              </a>
+            </div>
+          </li>
+
+          <li v-for="item of navlist" :key="item.id + 1">
+            <div class="d-flex justify-content-start text-left">
+              <ul class="m-5 list-unstyled">
+                <li v-for="(c,i) of item.list" :key="i">
+                  <a href="javascript:;">{{c.title}}</a>
+                </li>
+              </ul>
+              <a href="cate.html" class="m-5">
+                <img :src="$store.state.pcUrl+item.img">
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
-    </header>
-  </div>
+    </div>
+  </header>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      rightList: [
+        { id: 1, title: "我的海澜之家 |" },
+        { id: 2, title: "在线客服 |" },
+        { id: 3, title: "我的购物袋有0件商品 |" },
+        { id: 4, title: "帮助" }
+      ],
+      navBarList: [
+        { id: 1, title: "所有商品" },
+        { id: 2, title: "火热新品" },
+        { id: 3, title: "秋季热卖" },
+        { id: 4, title: "卫衣" },
+        { id: 5, title: "大衣" },
+        { id: 6, title: "夹克" },
+        { id: 7, title: "针织衫/毛衫" },
+        { id: 8, title: "衬衫" },
+        { id: 9, title: "休闲裤" },
+        { id: 10, title: "牛仔裤" },
+        { id: 11, title: "西服" },
+        { id: 12, title: "林更新同款" },
+        { id: 13, title: "潮男时尚" }
+      ],
+      liastnav: [
+        {
+          id: 1,
+          title: "所有宝贝",
+          list: [
+            { lid: 1, title: "人气排序" },
+            { lid: 2, title: "销量排序" },
+            { lid: 3, title: "价格排序" }
+          ]
+        },
+        {
+          id: 2,
+          title: "冬季新品",
+          list: [
+            { lid: 1, title: "人气排序" },
+            { lid: 2, title: "羽绒服" },
+            { lid: 3, title: "大衣" },
+            { lid: 4, title: "衬衫" },
+            { lid: 5, title: "夹克" }
+          ]
+        },
+        {
+          id: 3,
+          title: "秋季新品",
+          list: [
+            { lid: 1, title: "卫衣" },
+            { lid: 2, title: "长袖衬衫" },
+            { lid: 3, title: "长袖t恤" },
+            { lid: 4, title: "夹克" },
+            { lid: 5, title: "大衣" },
+            { lid: 6, title: "针织衫" },
+            { lid: 7, title: "休闲裤" },
+            { lid: 8, title: "牛仔裤" },
+            { lid: 9, title: "西服" }
+          ]
+        },
+        {
+          id: 4,
+          title: "上装",
+          list: [
+            { lid: 1, title: "卫衣" },
+            { lid: 2, title: "长袖衬衫" },
+            { lid: 3, title: "长袖t恤" },
+            { lid: 4, title: "夹克" },
+            { lid: 5, title: "大衣" },
+            { lid: 6, title: "针织衫" }
+          ]
+        },
+        {
+          id: 5,
+          title: "裤装",
+          list: [
+            { lid: 1, title: "西裤" },
+            { lid: 2, title: "休闲裤" },
+            { lid: 3, title: "牛仔裤" }
+          ]
+        },
+        {
+          id: 6,
+          title: "价格区间",
+          list: [
+            { lid: 1, title: "98-158" },
+            { lid: 2, title: "168-238" },
+            { lid: 3, title: "258-298" },
+            { lid: 4, title: "299-398" },
+            { lid: 5, title: "399-558" }
+          ]
+        }
+      ],
+      navtitle: [
+        {
+          id: 1,
+          title: "秋季热卖",
+          list: [
+            { tid: 1, title: "卫衣" },
+            { tid: 2, title: "长袖衬衫" },
+            { tid: 3, title: "长袖t恤" },
+            { tid: 4, title: "夹克" },
+            { tid: 5, title: "大衣" },
+            { tid: 6, title: "针织衫" },
+            { tid: 7, title: "休闲裤" },
+            { tid: 8, title: "牛仔裤" },
+            { tid: 9, title: "西服" }
+          ],
+          img: "o1cn011d59pjowexjlv1s_!!693060164.jpg"
+        },
+        {
+          id: 2,
+          title: "冬季新品",
+          list: [
+            { tid: 1, title: "人气排序" },
+            { tid: 2, title: "羽绒服" },
+            { tid: 3, title: "大衣" },
+            { tid: 4, title: "衬衫" },
+            { tid: 5, title: "夹克" }
+          ],
+          img: "o1cn011d59pn863bqh4z3_!!693060164.jpg"
+        }
+      ],
+      navlist: [
+        {
+          id: 1,
+          list: [{ title: "时尚易搭" }, { title: "加绒卫衣" }],
+          img: "o1cn011d59pmaedu9i4um_!!693060164.jpg"
+        },
+        {
+          id: 2,
+          list: [
+            { title: "长袖T恤" },
+            { title: "羊毛/羊绒衫" },
+            { title: "免烫衬衫" }
+          ],
+          img: "o1cn011d59pmaedu9i4um_!!693060164.jpg"
+        },
+        {
+          id: 3,
+          list: [
+            { title: "保暖长款" },
+            { title: "时尚款" },
+            { title: "户外款" },
+            { title: "连帽款" },
+            { title: "大衣" },
+            { title: "针织衫" }
+          ],
+          img: "o1cn011d59pn88cfxhdjb_!!693060164.jpg"
+        },
+        {
+          id: 4,
+          list: [
+            { title: "双面穿夹克" },
+            { title: "摇粒绒夹克" },
+            { title: "牛仔夹克" },
+            { title: "皮夹克" },
+            { title: "夹克" }
+          ],
+          img: "o1cn011d59plw73l9uyre_!!693060164.jpg"
+        },
+        {
+          id: 5,
+          list: [
+            { title: "基础款" },
+            { title: "羊绒款" },
+            { title: "加长款" },
+            { title: "时尚假两件" },
+            { title: "夹克" }
+          ],
+          img: "o1cn011d59plw73l9uyre_!!693060164.jpg"
+        },
+        {
+          id: 6,
+          list: [
+            { title: "休闲衬衫" },
+            { title: "正装衬衫" },
+            { title: "针织衬衫" },
+            { title: "免烫衬衫" },
+            { title: "保暖衬衫" }
+          ],
+          img: "o1cn011d59plxu5xavvvy_!!693060164.jpg"
+        },
+        {
+          id: 7,
+          list: [
+            { title: "基础实穿" },
+            { title: "温暖磨毛" },
+            { title: "灯芯绒" }
+          ],
+          img: "o1cn011d59pkailuz4h1r_!!693060164.jpg"
+        },
+        {
+          id: 8,
+          list: [{ title: "基础牛仔" }, { title: "温暖加绒" }],
+          img: "o1cn011d59pllue32gfcw_!!693060164.jpg"
+        },
+        {
+          id: 9,
+          list: [{ title: "休闲西服" }, { title: "套装西服" }],
+          img: "o1cn011d59plo6dlqybsw_!!693060164.jpg"
+        },
+        {
+          id: 10,
+          list: [
+            { title: "西服" },
+            { title: "休闲上衣" },
+            { title: "风衣" },
+            { title: "大衣" },
+            { title: "针织衫" },
+            { title: "夹克" }
+          ],
+          img: "o1cn011d59plluztas8oj_!!693060164.jpg"
+        },
+        {
+          id: 11,
+          list: [
+            { title: "针织衫" },
+            { title: "休闲裤" },
+            { title: "牛仔裤" },
+            { title: "西服" }
+          ],
+          img: "o1cn011d59plexgjp4trk_!!693060164.jpg"
+        }
+      ]
+    };
   },
   methods: {
     navList() {
