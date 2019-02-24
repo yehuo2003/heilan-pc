@@ -59,7 +59,6 @@ router.beforeEach((to, from, next) => {
     next(); // 必须使用 next ,执行效果依赖 next 方法的调用参数
   }
   window.scrollTo(0, 0);
-  console.log(flag);
 });
 
 export default router;

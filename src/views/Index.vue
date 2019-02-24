@@ -450,7 +450,7 @@ export default {
   left: 90px;
 }
 #myScrollspy {
-  /* background: url("http://yehuo-img.stor.sinaapp.com/img/home/carousel_01.jpg"); */
+  background: url("http://yehuo-img.stor.sinaapp.com/img/pc/bg1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   position: relative;

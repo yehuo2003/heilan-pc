@@ -236,7 +236,7 @@ export default {
             { tid: 8, title: "牛仔裤" },
             { tid: 9, title: "西服" }
           ],
-          img: "o1cn011d59pjowexjlv1s_!!693060164.jpg"
+          img: "O1CN011D59PjoweXjLv1s_%21%21693060164.jpg"
         },
         {
           id: 2,
@@ -248,14 +248,14 @@ export default {
             { tid: 4, title: "衬衫" },
             { tid: 5, title: "夹克" }
           ],
-          img: "o1cn011d59pn863bqh4z3_!!693060164.jpg"
+          img: "O1CN011D59Pn863bQh4Z3_%21%21693060164.jpg"
         }
       ],
       navlist: [
         {
           id: 1,
           list: [{ title: "时尚易搭" }, { title: "加绒卫衣" }],
-          img: "o1cn011d59pmaedu9i4um_!!693060164.jpg"
+          img: "O1CN011D59PmAEdu9I4uM_%21%21693060164.jpg"
         },
         {
           id: 2,
@@ -264,7 +264,7 @@ export default {
             { title: "羊毛/羊绒衫" },
             { title: "免烫衬衫" }
           ],
-          img: "o1cn011d59pmaedu9i4um_!!693060164.jpg"
+          img: "O1CN011D59PmAEdu9I4uM_%21%21693060164.jpg"
         },
         {
           id: 3,
@@ -276,7 +276,7 @@ export default {
             { title: "大衣" },
             { title: "针织衫" }
           ],
-          img: "o1cn011d59pn88cfxhdjb_!!693060164.jpg"
+          img: "O1CN011D59Pn88CfxHdJB_%21%21693060164.jpg"
         },
         {
           id: 4,
@@ -287,7 +287,7 @@ export default {
             { title: "皮夹克" },
             { title: "夹克" }
           ],
-          img: "o1cn011d59plw73l9uyre_!!693060164.jpg"
+          img: "O1CN011D59Plw73L9uYre_%21%21693060164.jpg"
         },
         {
           id: 5,
@@ -298,7 +298,7 @@ export default {
             { title: "时尚假两件" },
             { title: "夹克" }
           ],
-          img: "o1cn011d59plw73l9uyre_!!693060164.jpg"
+          img: "O1CN011D59Plw73L9uYre_%21%21693060164.jpg"
         },
         {
           id: 6,
@@ -309,7 +309,7 @@ export default {
             { title: "免烫衬衫" },
             { title: "保暖衬衫" }
           ],
-          img: "o1cn011d59plxu5xavvvy_!!693060164.jpg"
+          img: "O1CN011D59PlXU5xavvvY_%21%21693060164.jpg"
         },
         {
           id: 7,
@@ -318,17 +318,17 @@ export default {
             { title: "温暖磨毛" },
             { title: "灯芯绒" }
           ],
-          img: "o1cn011d59pkailuz4h1r_!!693060164.jpg"
+          img: "O1CN011D59PkailUz4h1r_%21%21693060164.jpg"
         },
         {
           id: 8,
           list: [{ title: "基础牛仔" }, { title: "温暖加绒" }],
-          img: "o1cn011d59pllue32gfcw_!!693060164.jpg"
+          img: "O1CN011D59PlLUe32GFCW_%21%21693060164.jpg"
         },
         {
           id: 9,
           list: [{ title: "休闲西服" }, { title: "套装西服" }],
-          img: "o1cn011d59plo6dlqybsw_!!693060164.jpg"
+          img: "O1CN011D59Plo6DlqyBSW_%21%21693060164.jpg"
         },
         {
           id: 10,
@@ -340,7 +340,7 @@ export default {
             { title: "针织衫" },
             { title: "夹克" }
           ],
-          img: "o1cn011d59plluztas8oj_!!693060164.jpg"
+          img: "O1CN011D59PlLUZtAs8oJ_%21%21693060164.jpg"
         },
         {
           id: 11,
@@ -350,7 +350,7 @@ export default {
             { title: "牛仔裤" },
             { title: "西服" }
           ],
-          img: "o1cn011d59plexgjp4trk_!!693060164.jpg"
+          img: "O1CN011D59PleXgJP4tRk_%21%21693060164.jpg"
         }
       ]
     };

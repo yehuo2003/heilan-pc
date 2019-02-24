@@ -18,9 +18,9 @@
         <div class="text-left sfq" id="parent">
           <div class="card">
             <div class="card-header">
-              <router-link :to="coll-1" data-toggle="collapse" class="card-link">
+              <a href="coll-1" data-toggle="collapse" class="card-link">
                 <img :src="$store.state.pcUrl+'r.jpg'">新手指南
-              </router-link>
+              </a>
             </div>
             <div id="coll-1" class="collapse show" data-parent="#parent">
               <ul class="card-body list-group p-0">

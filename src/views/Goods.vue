@@ -37,7 +37,7 @@
             <div class="col-7 pt-0 pr-0">
               <h5>HLA海澜之家连帽镶拼卫衣2018秋季新品时尚休闲卫衣男HNZWJ3E081A</h5>
               <span class="my_must">商品编号：HNZWJ3E081A</span>
-              <div class="price" :background="$store.state.pcUrl+'detailimg6.jpg'">
+              <div class="price">
                 &nbsp;&nbsp;
                 <span>价格</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <b>¥ 198.00</b>
@@ -56,7 +56,7 @@
                   <th>尺码</th>
                   <td>
                     <div class="mb-5 mt-3">
-                      <router-link
+                      <a
                         v-for="item of sizeList"
                         :key="item.id"
                         href="javascript:;"
@@ -64,7 +64,7 @@
                       >
                         <span>{{item.num}}</span>
                         <p class="bg-secondary">{{item.size}}</p>
-                      </router-link>
+                      </a>
                     </div>
                   </td>
                 </tr>
@@ -348,7 +348,7 @@ div.col-7 h5 {
 .price {
   width: 100%;
   height: 70px;
-  /* background-image: url(../img/goods/img1/detailimg6.jpg); */
+  background-image: url("http://yehuo-img.stor.sinaapp.com/img/pc/detailimg6.jpg");
   line-height: 70px;
 }
 
