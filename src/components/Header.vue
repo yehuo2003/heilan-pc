@@ -4,6 +4,7 @@
     <div class="row bg-ccc">
       <!-- 左导航-->
       <div class="col-sm-6">
+        <!-- <h1>{{liastnav}}</h1> -->
         <ul class="d-flex list-unstyled justify-content-center mb-0">
           <li>你好，欢迎来到海澜之家！</li>
           <li>
@@ -85,6 +86,7 @@
       </div>
       <div id="content" class="position-absolute w-100 p-0">
         <ul>
+          <li></li>
           <li>
             <div class="d-flex justify-content-start">
               <ul v-for="item of liastnav" :key="item.id" class="m-5 list-unstyled">
@@ -95,7 +97,7 @@
               </ul>
             </div>
           </li>
-          <li v-for="(item,index) of navtitle" :key="index">
+          <li v-for="item of navtitle" :key="item.cid">
             <div class="d-flex justify-content-start text-left">
               <ul class="m-5 list-unstyled">
                 <h6 class="mb-4">{{item.title}}</h6>
@@ -109,7 +111,7 @@
             </div>
           </li>
 
-          <li v-for="item of navlist" :key="item.id + 1">
+          <li v-for="item of navtwolist" :key="item.cid">
             <div class="d-flex justify-content-start text-left">
               <ul class="m-5 list-unstyled">
                 <li v-for="(c,i) of item.list" :key="i">
@@ -131,231 +133,74 @@
 export default {
   data() {
     return {
-      rightList: [
-        { id: 1, title: "我的海澜之家 |" },
-        { id: 2, title: "在线客服 |" },
-        { id: 3, title: "我的购物袋有0件商品 |" },
-        { id: 4, title: "帮助" }
-      ],
-      navBarList: [
-        { id: 1, title: "所有商品" },
-        { id: 2, title: "火热新品" },
-        { id: 3, title: "秋季热卖" },
-        { id: 4, title: "卫衣" },
-        { id: 5, title: "大衣" },
-        { id: 6, title: "夹克" },
-        { id: 7, title: "针织衫/毛衫" },
-        { id: 8, title: "衬衫" },
-        { id: 9, title: "休闲裤" },
-        { id: 10, title: "牛仔裤" },
-        { id: 11, title: "西服" },
-        { id: 12, title: "林更新同款" },
-        { id: 13, title: "潮男时尚" }
-      ],
-      liastnav: [
-        {
-          id: 1,
-          title: "所有宝贝",
-          list: [
-            { lid: 1, title: "人气排序" },
-            { lid: 2, title: "销量排序" },
-            { lid: 3, title: "价格排序" }
-          ]
-        },
-        {
-          id: 2,
-          title: "冬季新品",
-          list: [
-            { lid: 1, title: "人气排序" },
-            { lid: 2, title: "羽绒服" },
-            { lid: 3, title: "大衣" },
-            { lid: 4, title: "衬衫" },
-            { lid: 5, title: "夹克" }
-          ]
-        },
-        {
-          id: 3,
-          title: "秋季新品",
-          list: [
-            { lid: 1, title: "卫衣" },
-            { lid: 2, title: "长袖衬衫" },
-            { lid: 3, title: "长袖t恤" },
-            { lid: 4, title: "夹克" },
-            { lid: 5, title: "大衣" },
-            { lid: 6, title: "针织衫" },
-            { lid: 7, title: "休闲裤" },
-            { lid: 8, title: "牛仔裤" },
-            { lid: 9, title: "西服" }
-          ]
-        },
-        {
-          id: 4,
-          title: "上装",
-          list: [
-            { lid: 1, title: "卫衣" },
-            { lid: 2, title: "长袖衬衫" },
-            { lid: 3, title: "长袖t恤" },
-            { lid: 4, title: "夹克" },
-            { lid: 5, title: "大衣" },
-            { lid: 6, title: "针织衫" }
-          ]
-        },
-        {
-          id: 5,
-          title: "裤装",
-          list: [
-            { lid: 1, title: "西裤" },
-            { lid: 2, title: "休闲裤" },
-            { lid: 3, title: "牛仔裤" }
-          ]
-        },
-        {
-          id: 6,
-          title: "价格区间",
-          list: [
-            { lid: 1, title: "98-158" },
-            { lid: 2, title: "168-238" },
-            { lid: 3, title: "258-298" },
-            { lid: 4, title: "299-398" },
-            { lid: 5, title: "399-558" }
-          ]
-        }
-      ],
-      navtitle: [
-        {
-          id: 1,
-          title: "秋季热卖",
-          list: [
-            { tid: 1, title: "卫衣" },
-            { tid: 2, title: "长袖衬衫" },
-            { tid: 3, title: "长袖t恤" },
-            { tid: 4, title: "夹克" },
-            { tid: 5, title: "大衣" },
-            { tid: 6, title: "针织衫" },
-            { tid: 7, title: "休闲裤" },
-            { tid: 8, title: "牛仔裤" },
-            { tid: 9, title: "西服" }
-          ],
-          img: "O1CN011D59PjoweXjLv1s_%21%21693060164.jpg"
-        },
-        {
-          id: 2,
-          title: "冬季新品",
-          list: [
-            { tid: 1, title: "人气排序" },
-            { tid: 2, title: "羽绒服" },
-            { tid: 3, title: "大衣" },
-            { tid: 4, title: "衬衫" },
-            { tid: 5, title: "夹克" }
-          ],
-          img: "O1CN011D59Pn863bQh4Z3_%21%21693060164.jpg"
-        }
-      ],
-      navlist: [
-        {
-          id: 1,
-          list: [{ title: "时尚易搭" }, { title: "加绒卫衣" }],
-          img: "O1CN011D59PmAEdu9I4uM_%21%21693060164.jpg"
-        },
-        {
-          id: 2,
-          list: [
-            { title: "长袖T恤" },
-            { title: "羊毛/羊绒衫" },
-            { title: "免烫衬衫" }
-          ],
-          img: "O1CN011D59PmAEdu9I4uM_%21%21693060164.jpg"
-        },
-        {
-          id: 3,
-          list: [
-            { title: "保暖长款" },
-            { title: "时尚款" },
-            { title: "户外款" },
-            { title: "连帽款" },
-            { title: "大衣" },
-            { title: "针织衫" }
-          ],
-          img: "O1CN011D59Pn88CfxHdJB_%21%21693060164.jpg"
-        },
-        {
-          id: 4,
-          list: [
-            { title: "双面穿夹克" },
-            { title: "摇粒绒夹克" },
-            { title: "牛仔夹克" },
-            { title: "皮夹克" },
-            { title: "夹克" }
-          ],
-          img: "O1CN011D59Plw73L9uYre_%21%21693060164.jpg"
-        },
-        {
-          id: 5,
-          list: [
-            { title: "基础款" },
-            { title: "羊绒款" },
-            { title: "加长款" },
-            { title: "时尚假两件" },
-            { title: "夹克" }
-          ],
-          img: "O1CN011D59Plw73L9uYre_%21%21693060164.jpg"
-        },
-        {
-          id: 6,
-          list: [
-            { title: "休闲衬衫" },
-            { title: "正装衬衫" },
-            { title: "针织衬衫" },
-            { title: "免烫衬衫" },
-            { title: "保暖衬衫" }
-          ],
-          img: "O1CN011D59PlXU5xavvvY_%21%21693060164.jpg"
-        },
-        {
-          id: 7,
-          list: [
-            { title: "基础实穿" },
-            { title: "温暖磨毛" },
-            { title: "灯芯绒" }
-          ],
-          img: "O1CN011D59PkailUz4h1r_%21%21693060164.jpg"
-        },
-        {
-          id: 8,
-          list: [{ title: "基础牛仔" }, { title: "温暖加绒" }],
-          img: "O1CN011D59PlLUe32GFCW_%21%21693060164.jpg"
-        },
-        {
-          id: 9,
-          list: [{ title: "休闲西服" }, { title: "套装西服" }],
-          img: "O1CN011D59Plo6DlqyBSW_%21%21693060164.jpg"
-        },
-        {
-          id: 10,
-          list: [
-            { title: "西服" },
-            { title: "休闲上衣" },
-            { title: "风衣" },
-            { title: "大衣" },
-            { title: "针织衫" },
-            { title: "夹克" }
-          ],
-          img: "O1CN011D59PlLUZtAs8oJ_%21%21693060164.jpg"
-        },
-        {
-          id: 11,
-          list: [
-            { title: "针织衫" },
-            { title: "休闲裤" },
-            { title: "牛仔裤" },
-            { title: "西服" }
-          ],
-          img: "O1CN011D59PleXgJP4tRk_%21%21693060164.jpg"
-        }
-      ]
+      // 右边导航表
+      rightList: [],
+      // 一级导航条目
+      navBarList: [],
+      // 导航表-所有商品
+      liastnav: [],
+      // 导航列表二级条目-从第2条开始关联
+      // 不带一级标题的
+      navtitle: [],
+      // 导航列表二级条目-从第4条开始关联
+      // 不带一级标题的
+      navtwolist: []
     };
   },
   methods: {
+    // 右边导航列表
+    rList() {
+      var url = this.$store.state.apiUrl + "rightList";
+      this.$axios
+        .get(url)
+        .then(({ data }) => {
+          this.rightList = data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    // 导航条目
+    ListSum() {
+      var url = this.$store.state.apiUrl + "navBarList";
+      this.$axios
+        .get(url)
+        .then(({ data }) => {
+          for (var i = 0; i < data.length; i++) {
+            // 循环遍历出二级标题列表
+            var list = data[i];
+            var sum = {};
+            sum.id = list.cid;
+            sum.title = list.title;
+            this.navBarList.push(sum);
+            // 如果是火热新品或者是秋季热卖，就加入到navtitle
+            if (list.cid == 2 || list.cid == 3) {
+              this.navtitle.push(list);
+            }
+            // 从第三条以后的数据，全部加入到navtwolist里
+            if (list.cid > 3) {
+              this.navtwolist.push(list);
+            }
+          }
+          // 查询 所有商品 条目下的内容
+          this.allList();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    // 查询一级条目下所有条目
+    allList() {
+      var url = this.$store.state.apiUrl + "liastnav";
+      this.$axios
+        .get(url)
+        .then(({ data }) => {
+          this.liastnav = data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
     navList() {
       $("#box .nav-item").mouseenter(function() {
         var idx = $(this).index();
@@ -370,8 +215,14 @@ export default {
       });
     }
   },
+  created() {
+    this.rList();
+    this.ListSum();
+  },
   mounted() {
-    this.navList();
+    setTimeout(() => {
+      this.navList();
+    }, 0);
   }
 };
 </script>

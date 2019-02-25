@@ -1,25 +1,14 @@
 <template>
   <div class="container p-0">
     <!--轮播图-->
-    <div id="my_car" class="carousel heilan-carousel slide" data-ride="carousel">
-      <!--指示图-->
-      <ul class="carousel-indicators">
-        <li
-          v-for="item of imglist"
-          :key="item.id"
-          :class="item.cls"
-          data-target="#my_car"
-          :data-slide-to="item.id"
-          class="active"
-        ></li>
-      </ul>
-      <!-- 轮播的图片-->
-      <div v-for="item of imglist" :key="item.id" class="carousel-item" :class="item.cls">
+    <el-carousel :interval="3000" arrow="always" height="720px">
+      <el-carousel-item v-for="item of imglist" :key="item.id">
         <router-link to="/cate">
           <img :src="$store.state.pcUrl+item.img">
         </router-link>
-      </div>
-    </div>
+      </el-carousel-item>
+    </el-carousel>
+
     <!-- 小图：世界由你来更新-->
     <div class="text-center p-5 m-5">
       <router-link to="/cate">
@@ -35,17 +24,20 @@
     <!-- 每两周精选：上图片，下列表-->
     <div class="text-center p-5 m-5 my_bg1 pr-3">
       <!-- 两张轮播小图-->
-      <div class="carousel slide my_border" data-ride="carousel">
-        <div class="carousel-item active">
-          <router-link to="/cate">
-            <img :src="$store.state.pcUrl+'5b7fb2cdNd346b688.jpg'">
-          </router-link>
-        </div>
-        <div class="carousel-item">
-          <router-link to="/cate">
-            <img :src="$store.state.pcUrl+'5b7fb2cdNdd1f69eb.jpg'">
-          </router-link>
-        </div>
+      <div class="my_border">
+        <el-carousel :interval="3000" arrow="never" indicator-position="none">
+          <el-carousel-item>
+            <router-link to="/cate">
+              <img :src="$store.state.pcUrl+'5b7fb2cdNd346b688.jpg'">
+            </router-link>
+          </el-carousel-item>
+          <el-carousel-item>
+            <router-link to="/cate">
+              <img :src="$store.state.pcUrl+'5b7fb2cdNdd1f69eb.jpg'">
+            </router-link>
+          </el-carousel-item>
+        </el-carousel>
+
         <!-- 列表-->
         <ul class="list-unstyled d-flex flex-wrap p-5 justify-content-between heilan-cars">
           <router-link v-for="item of heilist" :key="item.id" to="/cate" class="m-3">{{item.title}}</router-link>
@@ -63,25 +55,13 @@
         <!-- 精选专题-->
         <img :src="$store.state.pcUrl+'O1CN011D59PGriaJuapBW_!!693060164.png'">
         <!-- 四张轮播-->
-        <div id="slide" class="slide position-relative">
-          <!-- 轮播的图片-->
-          <ul class="list-unstyled">
-            <li v-for="item of carousel" :key="item.id">
-              <router-link to="/cate">
-                <img :src="$store.state.pcUrl+item.img" :alt="item.id">
-              </router-link>
-            </li>
-          </ul>
-          <!-- 左右切换按钮 -->
-          <div class="arrow" id="arrow">
-            <a href="javascript:;" class="prev" id="arrLeft">
-              <img :src="$store.state.pcUrl+'prev.png'" alt="prev">
-            </a>
-            <a href="javascript:;" class="next" id="arrRight">
-              <img :src="$store.state.pcUrl+'next.png'" alt="next">
-            </a>
-          </div>
-        </div>
+        <el-carousel :interval="3000" type="card" height="1000px">
+          <el-carousel-item v-for="item of carousel" :key="item.id">
+            <router-link to="/cate">
+              <img :src="$store.state.pcUrl+item.img" :alt="item.id">
+            </router-link>
+          </el-carousel-item>
+        </el-carousel>
       </div>
       <!-- 更多精选专题-->
     </div>
@@ -136,10 +116,10 @@ export default {
   data() {
     return {
       imglist: [
-        { id: 0, img: "carousel_01.jpg", cls: "active" },
-        { id: 1, img: "carousel_02.jpg", cls: "" },
-        { id: 2, img: "carousel_03.jpg", cls: "" },
-        { id: 3, img: "carousel_04.jpg", cls: "" }
+        { id: 0, img: "carousel_01.jpg" },
+        { id: 1, img: "carousel_02.jpg" },
+        { id: 2, img: "carousel_03.jpg" },
+        { id: 3, img: "carousel_04.jpg" }
       ],
       heilist: [
         { id: 1, title: "7.1为你的商务减负" },
@@ -241,133 +221,7 @@ export default {
         }
       }, 30);
     },
-    isload() {
-      function my$(id) {
-        return document.getElementById(id);
-      }
-      var config = [
-        {
-          width: 400,
-          top: 150,
-          left: 550,
-          opacity: 0,
-          zIndex: 2
-        }, //0
-        {
-          width: 600,
-          top: 130,
-          left: 0,
-          opacity: 0.3,
-          zIndex: 3
-        }, //1
-        {
-          width: 800,
-          top: 70,
-          left: 400,
-          opacity: 1,
-          zIndex: 4
-        }, //2
-        {
-          width: 600,
-          top: 130,
-          left: 1000,
-          opacity: 0.3,
-          zIndex: 3
-        } //3
-      ];
-      //页面加载的事件
-      window.onload = function() {
-        var flag = true; //假设所有的动画执行完毕了——锁
-        //1.图片散开
-        var list = my$("slide").getElementsByTagName("li");
-        function assign() {
-          for (var i = 0; i < list.length; i++) {
-            //设置每个li，都要把宽，层级，透明度，left，top到达指定的目标位置
-            animate(list[i], config[i], function() {
-              flag = true;
-            });
-          }
-        }
-        assign();
-
-        //右边按钮
-        my$("arrRight").onclick = function() {
-          if (flag) {
-            flag = false;
-            //添加进数组的尾巴  把数组中第一个删除
-            config.push(config.shift());
-            assign(); //重新分配
-          }
-        };
-        //左边按钮
-        my$("arrLeft").onclick = function() {
-          //把最后一个删除，返回成新值加入开头
-          if (flag) {
-            flag = false;
-            config.unshift(config.pop());
-            assign();
-          }
-        };
-
-        //鼠标进入，左右焦点的div显示
-        my$("slide").onmouseover = function() {
-          animate(my$("arrow"), { opacity: 1 });
-        };
-        //鼠标离开，左右焦点的div隐藏
-        my$("slide").onmouseout = function() {
-          animate(my$("arrow"), { opacity: 0 });
-        };
-      };
-
-      function getAttrValue(element, attr) {
-        return element.currentStyle
-          ? element.currentStyle[attr]
-          : window.getComputedStyle(element, null)[attr] || 0;
-      }
-      function animate(element, json, fn) {
-        clearInterval(element.timeId);
-        element.timeId = setInterval(function() {
-          var flag = true; //假设都达到了目标
-          for (var attr in json) {
-            if (attr == "opacity") {
-              //判断属性是不是opacity
-              var current = getAttrValue(element, attr) * 100;
-              //每次移动多少步
-              var target = json[attr] * 100; //直接赋值给一个变量,后面的代码都不用改
-              var step = (target - current) / 10; //(目标-当前)/10
-              step = step > 0 ? Math.ceil(step) : Math.floor(step);
-              current = current + step;
-              element.style[attr] = current / 100;
-            } else if (attr == "zIndex") {
-              //判断属性是不是zIndex
-              element.style[attr] = json[attr];
-            } else {
-              //普通的属性
-              //获取当前的位置----getAttrValue(element,attr)获取的是字符串类型
-              var current = parseInt(getAttrValue(element, attr)) || 0;
-              //每次移动多少步
-              var target = json[attr]; //直接赋值给一个变量,后面的代码都不用改
-              var step = (target - current) / 10; //(目标-当前)/10
-              step = step > 0 ? Math.ceil(step) : Math.floor(step);
-              current = current + step;
-              element.style[attr] = current + "px";
-            }
-            if (current != target) {
-              flag = false; //如果没到目标结果就为false
-            }
-          }
-          if (flag) {
-            //结果为true
-            clearInterval(element.timeId);
-            if (fn) {
-              //如果用户传入了回调的函数
-              fn(); //就直接的调用,
-            }
-          }
-          //  console.log("target:"+target+"current:"+current+"step:"+step);
-        }, 10);
-      }
-
+    getToGo() {
       $(function() {
         $(window).scroll(function() {
           if ($(window).scrollTop() >= 2000) {
@@ -382,7 +236,7 @@ export default {
     }
   },
   mounted() {
-    this.isload();
+    this.getToGo();
   }
 };
 </script>
@@ -391,46 +245,8 @@ export default {
 .container {
   min-width: 100% !important;
 }
-#my_car .carousel-item {
-  overflow: hidden !important;
-}
 .heilan-cars {
-  margin-top: 320px;
-}
-.heilan-carousel {
-  min-height: 700px;
-}
-.carousel-indicators {
-  bottom: 39px;
-  left: 228px;
-}
-.carousel-indicators > li:nth-child(1) {
-  bottom: 39px;
-  left: 200px;
-}
-.carousel-indicators > li:nth-child(2) {
-  bottom: 39px;
-  left: 240px;
-}
-.carousel-indicators > li:nth-child(3) {
-  bottom: 39px;
-  left: 280px;
-}
-.carousel-indicators > li:nth-child(4) {
-  bottom: 39px;
-  left: 320px;
-}
-
-#my_car .carousel-indicators li {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid #ffde01;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 6px;
-}
-#my_car .carousel-indicators li:hover {
-  background: #ffde01;
+  margin-top: 35px;
 }
 .my_border {
   height: 500px;
@@ -460,8 +276,7 @@ export default {
   background: #fff;
   top: 1000px;
 }
-.my_bg2 > a,
-.my_bg3 > a {
+.my_bg2 > a {
   display: block;
   position: relative;
 }
@@ -502,7 +317,7 @@ export default {
 .my_bg3 {
   position: relative;
   background: #fff;
-  height: 1000px;
+  height: 900px;
 }
 .my_bg3 > img {
   position: relative;
@@ -510,32 +325,7 @@ export default {
   top: -2px;
   left: 640px;
 }
-.slide li {
-  position: absolute;
-  left: 200px;
-  top: 0;
-}
-.slide li img {
-  width: 100%;
-}
-.arrow {
-  opacity: 0;
-}
-.prev,
-.next {
-  top: 320px;
-  position: absolute;
-  z-index: 99;
-}
-.arrow > a > img {
-  width: 50px;
-}
-.prev {
-  left: 34px;
-}
-.next {
-  right: 36px;
-}
+
 #my_bg4 {
   height: 1000px;
   border-bottom: 1px solid #eee;
@@ -613,6 +403,15 @@ export default {
 .list-group-item-action:hover {
   background: #ccc;
   border: 0;
+}
+.el-carousel {
+  top: 50px;
+}
+.my_bg3 >>> .el-carousel__arrow {
+  top: 30% !important;
+}
+.my_bg3 >>> .el-carousel__mask {
+  opacity: 0;
 }
 </style>
 

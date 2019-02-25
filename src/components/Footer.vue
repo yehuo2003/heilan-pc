@@ -42,13 +42,13 @@
       <div class="foot_bg2">
         <div class="container">
           <div v-for="item of icbctitle" :key="item.id" class="text-center p-1">
-            <span>{{item.title}}</span>
+            <span>{{item.cls}}</span>
           </div>
           <div class="text-center">
             <img
               v-for="(item,i) of icbcimg"
               :key="i"
-              :src="$store.state.pcUrl+item.url"
+              :src="$store.state.pcUrl+item.img"
               :class="item.cls"
             >
           </div>
@@ -62,80 +62,72 @@
 export default {
   data() {
     return {
-      rules: [
-        { title: "7天", content: "无条件退货", img: "footerimg1.jpg" },
-        { title: "全场68包邮", content: "送货上门", img: "footerimg2.jpg" },
-        {
-          title: "全国所有城市",
-          content: "快递上门服务",
-          img: "footerimg3.jpg"
-        }
-      ],
-      afterList: [
-        {
-          id: 1,
-          title: "购物指南",
-          list: [
-            { title: "购物流程" },
-            { title: "订单查询" },
-            { title: "隐私声明" }
-          ]
-        },
-        {
-          id: 2,
-          title: "配送方式",
-          list: [
-            { title: "商品验货" },
-            { title: "商品签收" },
-            { title: "配送城市与费用" }
-          ]
-        },
-        {
-          id: 3,
-          title: "支付方式",
-          list: [
-            { title: "中国银联" },
-            { title: "支付宝" },
-            { title: "发票制度" }
-          ]
-        },
-        {
-          id: 4,
-          title: "售后服务",
-          list: [
-            { title: "退换货政策" },
-            { title: "退换货流程" },
-            { title: "退款方式" }
-          ]
-        },
-        {
-          id: 5,
-          title: "新手指南",
-          list: [
-            { title: "用户注册" },
-            { title: "找回密码" },
-            { title: "服务条款" }
-          ]
-        }
-      ],
-      icbcimg: [
-        { url: "footerimg4.jpg", cls: "p-1" },
-        { url: "footerimg5.jpg", cls: "p-1" },
-        { url: "footerimg6.jpg", cls: "p-1" },
-        { url: "ebsIcon.png", cls: "p-1 foot_gs" }
-      ],
-      icbctitle: [
-        { id: 1, title: "工信部备案·深ICP备666131号" },
-        { id: 2, title: "增值电信业务经营许可证·深B1-666666" },
-        {
-          id: 3,
-          title:
-            "©2014-2018 深圳电子商务有限公司 版权所有 HLA Inc. All Rights Reserved."
-        }
-      ]
+      // 基本信息表
+      rules: [],
+      // 购物指南
+      afterList: [],
+      // 工商标识
+      icbcimg: [],
+      // 工商备案号
+      icbctitle: []
     };
   },
-  methods: {}
+  methods: {
+    // 基本信息表
+    getrules() {
+      var url = this.$store.state.apiUrl + "rules";
+      this.$axios
+        .get(url)
+        .then(({ data }) => {
+          this.rules = data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    // 工商标识
+    geticbcimg() {
+      var url = this.$store.state.apiUrl + "icbcimg";
+      this.$axios
+        .get(url)
+        .then(({ data }) => {
+          this.icbcimg = data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    // 购物指南
+    getafterList() {
+      var url = this.$store.state.apiUrl + "after";
+      this.$axios
+        .get(url)
+        .then(({ data }) => {
+          this.afterList = data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    // 工商备案号
+    geticbctitle() {
+      var url = this.$store.state.apiUrl + "icbctitle";
+      this.$axios
+        .get(url)
+        .then(({ data }) => {
+          this.icbctitle = data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  },
+  created() {
+    this.getrules();
+    this.geticbcimg();
+    this.getafterList();
+    this.geticbctitle();
+  }
 };
 </script>
 
